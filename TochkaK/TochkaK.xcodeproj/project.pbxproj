@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		266AF10D18CA5AA100A18C33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10C18CA5AA100A18C33 /* Foundation.framework */; };
+		266AF10F18CA5AA100A18C33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */; };
+		266AF11118CA5AA100A18C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11018CA5AA100A18C33 /* UIKit.framework */; };
+		266AF11318CA5AA100A18C33 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11218CA5AA100A18C33 /* CoreData.framework */; };
+		266AF11918CA5AA100A18C33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266AF11718CA5AA100A18C33 /* InfoPlist.strings */; };
+		266AF11B18CA5AA100A18C33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF11A18CA5AA100A18C33 /* main.m */; };
+		266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF11E18CA5AA100A18C33 /* LibraryAppDelegate.m */; };
+		266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 266AF12018CA5AA200A18C33 /* TochkaK.xcdatamodeld */; };
+		266AF12418CA5AA200A18C33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266AF12318CA5AA200A18C33 /* Images.xcassets */; };
+		266AF12B18CA5AA200A18C33 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF12A18CA5AA200A18C33 /* XCTest.framework */; };
+		266AF12C18CA5AA200A18C33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10C18CA5AA100A18C33 /* Foundation.framework */; };
+		266AF12D18CA5AA200A18C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11018CA5AA100A18C33 /* UIKit.framework */; };
+		266AF12E18CA5AA200A18C33 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11218CA5AA100A18C33 /* CoreData.framework */; };
+		266AF13618CA5AA200A18C33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266AF13418CA5AA200A18C33 /* InfoPlist.strings */; };
+		266AF13818CA5AA200A18C33 /* TochkaKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF13718CA5AA200A18C33 /* TochkaKTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		266AF12F18CA5AA200A18C33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266AF10118CA5AA100A18C33 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 266AF10818CA5AA100A18C33;
+			remoteInfo = TochkaK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		266AF10918CA5AA100A18C33 /* TochkaK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TochkaK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		266AF10C18CA5AA100A18C33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		266AF11018CA5AA100A18C33 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		266AF11218CA5AA100A18C33 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		266AF11618CA5AA100A18C33 /* TochkaK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TochkaK-Info.plist"; sourceTree = "<group>"; };
+		266AF11818CA5AA100A18C33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		266AF11A18CA5AA100A18C33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		266AF11C18CA5AA100A18C33 /* TochkaK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TochkaK-Prefix.pch"; sourceTree = "<group>"; };
+		266AF11D18CA5AA100A18C33 /* LibraryAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryAppDelegate.h; sourceTree = "<group>"; };
+		266AF11E18CA5AA100A18C33 /* LibraryAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryAppDelegate.m; sourceTree = "<group>"; };
+		266AF12118CA5AA200A18C33 /* TochkaK.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TochkaK.xcdatamodel; sourceTree = "<group>"; };
+		266AF12318CA5AA200A18C33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		266AF12918CA5AA200A18C33 /* TochkaKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TochkaKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		266AF12A18CA5AA200A18C33 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		266AF13318CA5AA200A18C33 /* TochkaKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TochkaKTests-Info.plist"; sourceTree = "<group>"; };
+		266AF13518CA5AA200A18C33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		266AF13718CA5AA200A18C33 /* TochkaKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TochkaKTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		266AF10618CA5AA100A18C33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF10F18CA5AA100A18C33 /* CoreGraphics.framework in Frameworks */,
+				266AF11318CA5AA100A18C33 /* CoreData.framework in Frameworks */,
+				266AF11118CA5AA100A18C33 /* UIKit.framework in Frameworks */,
+				266AF10D18CA5AA100A18C33 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266AF12618CA5AA200A18C33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF12B18CA5AA200A18C33 /* XCTest.framework in Frameworks */,
+				266AF12E18CA5AA200A18C33 /* CoreData.framework in Frameworks */,
+				266AF12D18CA5AA200A18C33 /* UIKit.framework in Frameworks */,
+				266AF12C18CA5AA200A18C33 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		266AF10018CA5AA100A18C33 = {
+			isa = PBXGroup;
+			children = (
+				266AF11418CA5AA100A18C33 /* TochkaK */,
+				266AF13118CA5AA200A18C33 /* TochkaKTests */,
+				266AF10B18CA5AA100A18C33 /* Frameworks */,
+				266AF10A18CA5AA100A18C33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		266AF10A18CA5AA100A18C33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				266AF10918CA5AA100A18C33 /* TochkaK.app */,
+				266AF12918CA5AA200A18C33 /* TochkaKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		266AF10B18CA5AA100A18C33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				266AF10C18CA5AA100A18C33 /* Foundation.framework */,
+				266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */,
+				266AF11018CA5AA100A18C33 /* UIKit.framework */,
+				266AF11218CA5AA100A18C33 /* CoreData.framework */,
+				266AF12A18CA5AA200A18C33 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		266AF11418CA5AA100A18C33 /* TochkaK */ = {
+			isa = PBXGroup;
+			children = (
+				266AF11D18CA5AA100A18C33 /* LibraryAppDelegate.h */,
+				266AF11E18CA5AA100A18C33 /* LibraryAppDelegate.m */,
+				266AF12318CA5AA200A18C33 /* Images.xcassets */,
+				266AF12018CA5AA200A18C33 /* TochkaK.xcdatamodeld */,
+				266AF11518CA5AA100A18C33 /* Supporting Files */,
+			);
+			path = TochkaK;
+			sourceTree = "<group>";
+		};
+		266AF11518CA5AA100A18C33 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				266AF11618CA5AA100A18C33 /* TochkaK-Info.plist */,
+				266AF11718CA5AA100A18C33 /* InfoPlist.strings */,
+				266AF11A18CA5AA100A18C33 /* main.m */,
+				266AF11C18CA5AA100A18C33 /* TochkaK-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		266AF13118CA5AA200A18C33 /* TochkaKTests */ = {
+			isa = PBXGroup;
+			children = (
+				266AF13718CA5AA200A18C33 /* TochkaKTests.m */,
+				266AF13218CA5AA200A18C33 /* Supporting Files */,
+			);
+			path = TochkaKTests;
+			sourceTree = "<group>";
+		};
+		266AF13218CA5AA200A18C33 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				266AF13318CA5AA200A18C33 /* TochkaKTests-Info.plist */,
+				266AF13418CA5AA200A18C33 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		266AF10818CA5AA100A18C33 /* TochkaK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 266AF13B18CA5AA200A18C33 /* Build configuration list for PBXNativeTarget "TochkaK" */;
+			buildPhases = (
+				266AF10518CA5AA100A18C33 /* Sources */,
+				266AF10618CA5AA100A18C33 /* Frameworks */,
+				266AF10718CA5AA100A18C33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TochkaK;
+			productName = TochkaK;
+			productReference = 266AF10918CA5AA100A18C33 /* TochkaK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		266AF12818CA5AA200A18C33 /* TochkaKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 266AF13E18CA5AA200A18C33 /* Build configuration list for PBXNativeTarget "TochkaKTests" */;
+			buildPhases = (
+				266AF12518CA5AA200A18C33 /* Sources */,
+				266AF12618CA5AA200A18C33 /* Frameworks */,
+				266AF12718CA5AA200A18C33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				266AF13018CA5AA200A18C33 /* PBXTargetDependency */,
+			);
+			name = TochkaKTests;
+			productName = TochkaKTests;
+			productReference = 266AF12918CA5AA200A18C33 /* TochkaKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		266AF10118CA5AA100A18C33 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Library;
+				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					266AF12818CA5AA200A18C33 = {
+						TestTargetID = 266AF10818CA5AA100A18C33;
+					};
+				};
+			};
+			buildConfigurationList = 266AF10418CA5AA100A18C33 /* Build configuration list for PBXProject "TochkaK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 266AF10018CA5AA100A18C33;
+			productRefGroup = 266AF10A18CA5AA100A18C33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				266AF10818CA5AA100A18C33 /* TochkaK */,
+				266AF12818CA5AA200A18C33 /* TochkaKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		266AF10718CA5AA100A18C33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF11918CA5AA100A18C33 /* InfoPlist.strings in Resources */,
+				266AF12418CA5AA200A18C33 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266AF12718CA5AA200A18C33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF13618CA5AA200A18C33 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		266AF10518CA5AA100A18C33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
+				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
+				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266AF12518CA5AA200A18C33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266AF13818CA5AA200A18C33 /* TochkaKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		266AF13018CA5AA200A18C33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 266AF10818CA5AA100A18C33 /* TochkaK */;
+			targetProxy = 266AF12F18CA5AA200A18C33 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		266AF11718CA5AA100A18C33 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				266AF11818CA5AA100A18C33 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		266AF13418CA5AA200A18C33 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				266AF13518CA5AA200A18C33 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		266AF13918CA5AA200A18C33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		266AF13A18CA5AA200A18C33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		266AF13C18CA5AA200A18C33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
+				INFOPLIST_FILE = "TochkaK/TochkaK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		266AF13D18CA5AA200A18C33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
+				INFOPLIST_FILE = "TochkaK/TochkaK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		266AF13F18CA5AA200A18C33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TochkaK.app/TochkaK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TochkaKTests/TochkaKTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		266AF14018CA5AA200A18C33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TochkaK.app/TochkaK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
+				INFOPLIST_FILE = "TochkaKTests/TochkaKTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		266AF10418CA5AA100A18C33 /* Build configuration list for PBXProject "TochkaK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266AF13918CA5AA200A18C33 /* Debug */,
+				266AF13A18CA5AA200A18C33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		266AF13B18CA5AA200A18C33 /* Build configuration list for PBXNativeTarget "TochkaK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266AF13C18CA5AA200A18C33 /* Debug */,
+				266AF13D18CA5AA200A18C33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		266AF13E18CA5AA200A18C33 /* Build configuration list for PBXNativeTarget "TochkaKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266AF13F18CA5AA200A18C33 /* Debug */,
+				266AF14018CA5AA200A18C33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		266AF12018CA5AA200A18C33 /* TochkaK.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				266AF12118CA5AA200A18C33 /* TochkaK.xcdatamodel */,
+			);
+			currentVersion = 266AF12118CA5AA200A18C33 /* TochkaK.xcdatamodel */;
+			path = TochkaK.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 266AF10118CA5AA100A18C33 /* Project object */;
+}
