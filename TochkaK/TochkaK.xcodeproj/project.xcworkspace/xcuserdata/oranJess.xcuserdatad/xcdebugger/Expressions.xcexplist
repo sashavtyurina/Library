@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[LibraryBookCreator booksFromJSON:error:]:LibraryBookCreator.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "books[3]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[LibraryBookCreator booksFromJSON:error:]:LibraryBookCreator.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "books[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DE4A818CB0BA40036559F /* LibraryManager.m */; };
+		261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C218CB5142007C13D3 /* LibraryBookCreator.m */; };
+		261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */; };
+		261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C818CB947D007C13D3 /* LibraryBook.m */; };
+		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
 		266AF10D18CA5AA100A18C33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10C18CA5AA100A18C33 /* Foundation.framework */; };
 		266AF10F18CA5AA100A18C33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */; };
 		266AF11118CA5AA100A18C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11018CA5AA100A18C33 /* UIKit.framework */; };
@@ -22,6 +27,8 @@
 		266AF12E18CA5AA200A18C33 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11218CA5AA100A18C33 /* CoreData.framework */; };
 		266AF13618CA5AA200A18C33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266AF13418CA5AA200A18C33 /* InfoPlist.strings */; };
 		266AF13818CA5AA200A18C33 /* TochkaKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF13718CA5AA200A18C33 /* TochkaKTests.m */; };
+		266AF14218CA5D5D00A18C33 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266AF14118CA5D5D00A18C33 /* main.storyboard */; };
+		266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF14718CA650800A18C33 /* LibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		260DE4A718CB0BA40036559F /* LibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryManager.h; sourceTree = "<group>"; };
+		260DE4A818CB0BA40036559F /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryManager.m; sourceTree = "<group>"; };
+		261B28C118CB5142007C13D3 /* LibraryBookCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryBookCreator.h; sourceTree = "<group>"; };
+		261B28C218CB5142007C13D3 /* LibraryBookCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBookCreator.m; sourceTree = "<group>"; };
+		261B28C418CB7617007C13D3 /* LibraryServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryServerCommunicator.h; sourceTree = "<group>"; };
+		261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryServerCommunicator.m; sourceTree = "<group>"; };
+		261B28C718CB947D007C13D3 /* LibraryBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryBook.h; sourceTree = "<group>"; };
+		261B28C818CB947D007C13D3 /* LibraryBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBook.m; sourceTree = "<group>"; };
+		261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDetailedBookViewController.h; sourceTree = "<group>"; };
+		261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDetailedBookViewController.m; sourceTree = "<group>"; };
 		266AF10918CA5AA100A18C33 /* TochkaK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TochkaK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266AF10C18CA5AA100A18C33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +70,9 @@
 		266AF13318CA5AA200A18C33 /* TochkaKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TochkaKTests-Info.plist"; sourceTree = "<group>"; };
 		266AF13518CA5AA200A18C33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		266AF13718CA5AA200A18C33 /* TochkaKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TochkaKTests.m; sourceTree = "<group>"; };
+		266AF14118CA5D5D00A18C33 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		266AF14618CA650800A18C33 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		266AF14718CA650800A18C33 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +104,19 @@
 		266AF10018CA5AA100A18C33 = {
 			isa = PBXGroup;
 			children = (
+				261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */,
+				261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */,
+				261B28C718CB947D007C13D3 /* LibraryBook.h */,
+				261B28C818CB947D007C13D3 /* LibraryBook.m */,
+				261B28C418CB7617007C13D3 /* LibraryServerCommunicator.h */,
+				261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */,
+				261B28C118CB5142007C13D3 /* LibraryBookCreator.h */,
+				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
+				260DE4A718CB0BA40036559F /* LibraryManager.h */,
+				260DE4A818CB0BA40036559F /* LibraryManager.m */,
+				266AF14618CA650800A18C33 /* LibraryViewController.h */,
+				266AF14718CA650800A18C33 /* LibraryViewController.m */,
+				266AF14118CA5D5D00A18C33 /* main.storyboard */,
 				266AF11418CA5AA100A18C33 /* TochkaK */,
 				266AF13118CA5AA200A18C33 /* TochkaKTests */,
 				266AF10B18CA5AA100A18C33 /* Frameworks */,
@@ -115,8 +148,6 @@
 		266AF11418CA5AA100A18C33 /* TochkaK */ = {
 			isa = PBXGroup;
 			children = (
-				266AF11D18CA5AA100A18C33 /* LibraryAppDelegate.h */,
-				266AF11E18CA5AA100A18C33 /* LibraryAppDelegate.m */,
 				266AF12318CA5AA200A18C33 /* Images.xcassets */,
 				266AF12018CA5AA200A18C33 /* TochkaK.xcdatamodeld */,
 				266AF11518CA5AA100A18C33 /* Supporting Files */,
@@ -127,6 +158,8 @@
 		266AF11518CA5AA100A18C33 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				266AF11D18CA5AA100A18C33 /* LibraryAppDelegate.h */,
+				266AF11E18CA5AA100A18C33 /* LibraryAppDelegate.m */,
 				266AF11618CA5AA100A18C33 /* TochkaK-Info.plist */,
 				266AF11718CA5AA100A18C33 /* InfoPlist.strings */,
 				266AF11A18CA5AA100A18C33 /* main.m */,
@@ -229,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				266AF11918CA5AA100A18C33 /* InfoPlist.strings in Resources */,
+				266AF14218CA5D5D00A18C33 /* main.storyboard in Resources */,
 				266AF12418CA5AA200A18C33 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,9 +282,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */,
 				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
+				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
+				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
+				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
+				261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
+				260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +493,7 @@
 				266AF13D18CA5AA200A18C33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		266AF13E18CA5AA200A18C33 /* Build configuration list for PBXNativeTarget "TochkaKTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +502,7 @@
 				266AF14018CA5AA200A18C33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
