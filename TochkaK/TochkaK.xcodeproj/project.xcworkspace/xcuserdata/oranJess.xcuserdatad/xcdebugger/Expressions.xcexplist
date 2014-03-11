@@ -3,12 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[LibraryBookCreator booksFromJSON:error:]:LibraryBookCreator.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "books[3]">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[LibraryViewController reloadUI]:LibraryViewController.m">
       </ContextState>
       <ContextState
          contextName = "+[LibraryBookCreator booksFromJSON:error:]:LibraryBookCreator.m">
@@ -17,6 +12,68 @@
                value = "books[2]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryViewController repopulateCurrentDetailedVC]:LibraryViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryBookCreator singleBookFromJSON:error:]:LibraryBookCreator.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "json[@&quot;book&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryDetailedBookViewController updateUI]:LibraryDetailedBookViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.bookToShow">
+            </PersistentString>
+            <PersistentString
+               value = "self.titleLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.descriptionTextField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryViewController tableView:numberOfRowsInSection:]:LibraryViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryDetailedBookViewController viewDidLoad]:LibraryDetailedBookViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.descriptionLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryDetailedBookViewController initWithBook:]:LibraryDetailedBookViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryBookCreator booksFromJSON:error:]:LibraryBookCreator.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "books[3]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryTabBarViewController viewDidLoad]:LibraryTabBarViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__33-[LibraryViewController reloadUI]_block_invoke:LibraryViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryDetailedBookViewController loadView]:LibraryDetailedBookViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryManager connectionDidFinishLoading:]:LibraryManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryViewController viewDidLoad]:LibraryViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

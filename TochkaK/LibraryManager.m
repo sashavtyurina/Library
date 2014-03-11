@@ -11,14 +11,15 @@
 #import "LibraryBookCreator.h"
 @interface LibraryManager ()
 @property (strong, nonatomic) NSURL* sourceURL;
-@property (strong, nonatomic) LibraryServerCommunicator* communicator;
-@property (strong, nonatomic) LibraryBookCreator* bookCreator;
+//@property (strong, nonatomic) LibraryServerCommunicator* communicator;
+//@property (strong, nonatomic) LibraryBookCreator* bookCreator;
 
 
 //URLConnection
-    @property (strong, nonatomic, readonly) NSMutableData* dataRecieved;
-    @property (strong, nonatomic) id <NSURLConnectionDelegate> delegate;
-
+@property (strong, nonatomic) NSMutableData* dataRecieved;
+@property (strong, nonatomic) id <NSURLConnectionDelegate> delegate;
+@property (strong, nonatomic) NSURLConnection* getBooksConnection;
+@property (strong, nonatomic) NSURLConnection* detailedBooksConnection;
 //JSONSerialization
 
 
@@ -31,44 +32,78 @@
 @implementation LibraryManager
 @synthesize dataRecieved = _dataRecieved;
 @synthesize delegate = _delegate;
+@synthesize getBooksConnection = _getBooksConnection;
 
--(LibraryBookCreator*) bookCreator
+
+//-(LibraryBookCreator*) bookCreator
+//{
+//    if (!_bookCreator)
+//    {
+//        _bookCreator = [[LibraryBookCreator alloc] init];
+//    }
+//    return _bookCreator;
+//}
+
+//-(LibraryServerCommunicator*) communicator
+//{
+//    if (!_communicator)
+//    {
+//        _communicator = [[LibraryServerCommunicator alloc] init];
+//    }
+//    return _communicator;
+//}
+
+
+-(void) startGettingBooks
 {
-    if (!_bookCreator)
-    {
-        _bookCreator = [[LibraryBookCreator alloc] init];
-    }
-    return _bookCreator;
+    [self sendRequestToURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"] connection:self.getBooksConnection];
 }
 
--(LibraryServerCommunicator*) communicator
+-(NSURL*) constructURLForBookWithID:(NSInteger) ID
 {
-    if (!_communicator)
-    {
-        _communicator = [[LibraryServerCommunicator alloc] init];
-    }
-    return _communicator;
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://test.tochkak.ru/item.json?id=%d", ID]];
 }
 
--(NSArray*) getBooks
+-(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger)ID
 {
-    [self sendRequest];
-    return nil;
+    [self sendRequestToURL:[self constructURLForBookWithID:ID] connection:self.detailedBooksConnection];
 }
 
--(void) sendRequest
+-(void) sendRequestToURL:(NSURL*) url connection:(NSURLConnection*) connection
 {
+    BOOL success = YES;
+    
     if (!_dataRecieved)
     {
         _dataRecieved = [[NSMutableData alloc] init];
     }
-    NSError* err = nil;
-    [LibraryServerCommunicator sendRequestToURL:self.sourceURL withDelegate:self error:err];
     
-    if (err)
+    if (connection == self.getBooksConnection)
+    {
+        self.getBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self succeed:success];
+        if (!success)
+        {
+            //Dtabase manager get list of books
+        }
+        
+    }
+    else if (connection == self.detailedBooksConnection)
+    {
+        self.detailedBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self succeed:success];
+        if (!success)
+        {
+            //Database manager get detailed description for book with ID
+        }
+//        if (!self.detailedBooksConnection)
+//        {
+//            _dataRecieved = nil;
+//        }
+    }
+    if (!success)//(!self.getBooksConnection)
     {
         _dataRecieved = nil;
     }
+    
 }
 
 -(LibraryManager*) initWithSourceURL:(NSURL *)sourceURL
@@ -81,27 +116,33 @@
     return self;
 }
 
+
+
 #pragma mark NSURLConnectionDelegate, NSURLConnectionDataDelegate protocols implementation
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"NSURLResponse = %@", response.description);
-}
+{}
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    _dataRecieved = nil;
     _dataRecieved = [data mutableCopy];
-    //NSLog(@"Newly arrived data = %@", self.dataRecieved.description);
-    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Did finish loading successfully");
-    NSError* err = nil;
-    self.books = [self.bookCreator booksFromJSON:_dataRecieved error:&err];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+    if (connection == self.getBooksConnection)
+    {
+        NSError* err = nil;
+        self.books = [LibraryBookCreator booksFromJSON:_dataRecieved error:&err];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+    }
+    else if (connection == self.detailedBooksConnection)
+    {
+        NSError* err = nil;
+        self.requestedBook = [LibraryBookCreator singleBookFromJSON:_dataRecieved error:&err];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOK_DETAILS_RETRIEVED" object:nil];
+    }
 }
 @end

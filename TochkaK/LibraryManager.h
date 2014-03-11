@@ -10,7 +10,12 @@
 #import "LibraryBookCreator.h"
 @interface LibraryManager : NSObject <NSURLConnectionDelegate>
 @property (strong, nonatomic) NSArray* books;
--(NSArray*) getBooks;
+@property (weak, nonatomic) LibraryBook* requestedBook;
+
+-(void) startGettingBooks;
+-(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger) ID;
+
+
 -(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
 
 @end

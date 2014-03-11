@@ -13,28 +13,40 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize rootViewController = _rootViewController;
-
--(UIViewController*) rootViewController
-{
-    if (!_rootViewController)
-    {
-        _rootViewController = [[LibraryViewController alloc] init];
-    }
-    return _rootViewController;
-}
+@synthesize tabBarController = _tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-//    
-//    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    self.tabBarController = [[UITabBarController alloc] init];
     
-    //self.rootViewController = [[UIViewController alloc] init];
-    //self.rootViewController.view.backgroundColor = [UIColor blueColor];
-    self.window.rootViewController = self.rootViewController;
+    LibraryViewController* titlesVC = [[LibraryViewController alloc] init];
+    titlesVC.order = TITLE;
+    titlesVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Titles" image:nil tag:1];
+    titlesVC.navigationItem.title = @"Titles";
+    UINavigationController* titlesNavController = [[UINavigationController alloc] initWithRootViewController:titlesVC];
+    titlesNavController.title = @"Titles";
+
+    
+    LibraryViewController* authorsVC = [[LibraryViewController alloc] init];
+    authorsVC.order = AUTHOR_TITLE;
+    authorsVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Authors" image:nil tag:2];
+    authorsVC.navigationItem.title = @"Authors";
+    UINavigationController* authorTitlesNavController = [[UINavigationController alloc] initWithRootViewController:authorsVC];
+    authorTitlesNavController.title = @"Authors";
+    
+    LibraryViewController* priceVC = [[LibraryViewController alloc] init];
+    priceVC.order = PRICE;
+    priceVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Price" image:nil tag:3];
+    priceVC.navigationItem.title = @"Price";
+    UINavigationController* priceNavController = [[UINavigationController alloc] initWithRootViewController:priceVC];
+    priceNavController.title = @"Price";
+
+    NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
+    self.tabBarController.viewControllers = controllers;
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

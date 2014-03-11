@@ -10,6 +10,8 @@
 #import "LibraryBook.h"
 
 @interface LibraryDetailedBookViewController : UIViewController
-@property (weak, nonatomic) LibraryBook* bookToShow;
+@property (strong, nonatomic) LibraryBook* bookToShow;
+
+-(void) updateUI;
 
 @end
