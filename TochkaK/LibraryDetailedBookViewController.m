@@ -16,15 +16,10 @@
 @property (strong, nonatomic) UILabel* subtitleLable;
 @property (strong, nonatomic) UILabel* publishedLabel;
 @property (strong, nonatomic) UILabel* freeLabel;
-
 @property (strong, nonatomic) UIScrollView* scrollView;
 @end
 
 @implementation LibraryDetailedBookViewController
-@synthesize titleLabel = _titleLabel;
-@synthesize authorTitleLabel = _authorTitleLabel;
-@synthesize coverImage = _coverImage;
-@synthesize bookToShow = _bookToShow;
 
 -(UILabel*) titleLabel
 {
@@ -103,7 +98,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -178,9 +172,6 @@
     {
         self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
     }
-
-//    self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-    
     [self.descriptionLabel sizeToFit];
     [self.titleLabel sizeToFit];
     [self.authorTitleLabel sizeToFit];
@@ -191,15 +182,10 @@
     self.scrollView.contentSize =  CGSizeMake(320, self.titleLabel.frame.size.height+ self.authorTitleLabel.frame.size.height + self.descriptionLabel.frame.size.height + 50);
 }
 
--(void) upd
-{
-    self.titleLabel.text = self.bookToShow.title;
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

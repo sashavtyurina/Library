@@ -10,14 +10,19 @@
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
 @interface LibraryManager : NSObject <NSURLConnectionDelegate>
+//A collection of books
 @property (strong, nonatomic) NSArray* books;
+
+//A single book  currently requested
 @property (weak, nonatomic) LibraryBook* requestedBook;
 
--(void) startGettingBooks;
--(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger) ID;
-
-//+(void) backupDBFromServer;
-
+//sourceURL - initial address of the book storage
 -(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
+
+//get the list of the books
+-(void) startGettingBooks;
+
+//get a particular book with identifier ID
+-(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger) ID;
 
 @end

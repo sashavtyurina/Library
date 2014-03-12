@@ -101,11 +101,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		266AF10018CA5AA100A18C33 = {
+		2618D5F718D084A90015E638 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
 				261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */,
 				261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */,
+				266AF14618CA650800A18C33 /* LibraryViewController.h */,
+				266AF14718CA650800A18C33 /* LibraryViewController.m */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
+		2618D5F818D084B30015E638 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				261B28C718CB947D007C13D3 /* LibraryBook.h */,
 				261B28C818CB947D007C13D3 /* LibraryBook.m */,
 				261B28C418CB7617007C13D3 /* LibraryServerCommunicator.h */,
@@ -114,8 +123,15 @@
 				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
 				260DE4A718CB0BA40036559F /* LibraryManager.h */,
 				260DE4A818CB0BA40036559F /* LibraryManager.m */,
-				266AF14618CA650800A18C33 /* LibraryViewController.h */,
-				266AF14718CA650800A18C33 /* LibraryViewController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		266AF10018CA5AA100A18C33 = {
+			isa = PBXGroup;
+			children = (
+				2618D5F818D084B30015E638 /* Model */,
+				2618D5F718D084A90015E638 /* VCs */,
 				266AF14118CA5D5D00A18C33 /* main.storyboard */,
 				266AF11418CA5AA100A18C33 /* TochkaK */,
 				266AF13118CA5AA200A18C33 /* TochkaKTests */,

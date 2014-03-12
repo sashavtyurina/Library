@@ -11,38 +11,29 @@
 
 
 @implementation LibraryBookCreator
-//@synthesize books = _books;
-//-(NSMutableArray*) books
-//{
-//    if (!_books)
-//    {
-//        _books = [[NSMutableArray alloc] init];
-//    }
-//    return _books;
-//}
 
 +(NSArray*) booksFromJSON: (NSData*)data error:(NSError**) error
 {
     NSMutableArray* books = [[NSMutableArray alloc] init];
-//    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", str);
-    
-    //NSError* err = nil;
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
-    
     NSArray* booksRaw = [json valueForKey:@"books"];
     
     for (NSDictionary* bookRaw in booksRaw) {
+        NSString* title = [bookRaw valueForKey:@"title"];
         NSString* authorTitle = [bookRaw valueForKey:@"author_title"];
+        BOOL free = [[bookRaw objectForKey:@"free"] boolValue];
+        NSString* url = [bookRaw valueForKey:@"img"];
+        NSData* image = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         LibraryBook* book = [[LibraryBook alloc]
                              initWithID: [[bookRaw objectForKey:@"id"] integerValue]
-                             title:[bookRaw objectForKey:@"title"]
+                             title:[title isEqual:[NSNull null]] ? @"Unknown name" : title
                              subtitle:@""
-                             authorTitle:[authorTitle isEqual:[NSNull null]] ?@"" : authorTitle //[bookRaw valueForKey:@"author_title"]
-                             url:[bookRaw valueForKey:@"img"]
+                             authorTitle:[authorTitle isEqual:[NSNull null]] ?@"" : authorTitle
+                             url:[url isEqual:[NSNull null]] ? @"" : url
                              published:@""
-                             free:[[bookRaw objectForKey:@"free"] boolValue]
-                             description:@"" ];
+                             free:free
+                             description:@""
+                             image:image];
         [books addObject:book];
     }
     return  books;
@@ -61,6 +52,7 @@
     NSString* published = [json valueForKey:@"published"];
     BOOL free = [[json valueForKey:@"free"] boolValue];
     NSString* description = [json valueForKey:@"description"];
+    NSData* image = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
 
     
     title = [title isEqual:[NSNull null]] ? @"Unknown name" : title;
@@ -78,7 +70,8 @@
                                                     url:url
                                               published:published
                                                    free:free
-                                            description:description];    
+                                            description:description
+                                                  image:image];
     return book;
     
 }

@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LibraryServerCommunicator : NSObject
-//@property (strong, nonatomic)id<NSURLConnectionDelegate> delegate;
-//@property (strong, nonatomic) NSURL* sourceURL;
 
-+(NSURLConnection*) sendRequestToURL:(NSURL *)sourceURL withDelegate:(id<NSURLConnectionDelegate>)delegate succeed:(BOOL)succeed;
+//sends request to URL, sets up a delegate
++(NSURLConnection*) sendRequestToURL:(NSURL *)sourceURL withDelegate:(id<NSURLConnectionDelegate>)delegate;
 @end

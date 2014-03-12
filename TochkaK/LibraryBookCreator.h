@@ -10,12 +10,13 @@
 #import "LibraryBook.h"
 
 @interface LibraryBookCreator : NSObject
-//@property (strong, nonatomic) NSMutableArray* books;
 
+//transforms JSON object into an array of LibraryBooks
 +(NSArray*) booksFromJSON: (NSData*)data error:(NSError**) error;
 
-//-(void) complementBook:(LibraryBook*) book withDetailedDescription:(NSData*) complementaryData;
+//transfroms JSON object into single LibraryBook
 +(LibraryBook*) singleBookFromJSON:(NSData*)data error:(NSError**)error;
 
+//transforms NSManagedObject into single LibraryBook
 +(LibraryBook*) singleBookFromNSManagedObject: (NSManagedObject*) managedObject;
 @end

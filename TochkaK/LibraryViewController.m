@@ -19,11 +19,7 @@
 @end
 
 @implementation LibraryViewController
-@synthesize books = _books;
-@synthesize manager = _manager;
-@synthesize navigationBar = _navigationBar;
-@synthesize tableView = _tableView;
-@synthesize currentDetailedVC = _currentDetailedVC;
+
 -(UITableView*) tableView
 {
     if (!_tableView)
@@ -99,7 +95,6 @@
     
     if (selectedIndex == myIndex)
     {
-        //NSLog(@"process motification");
         self.currentDetailedVC.bookToShow = self.manager.requestedBook;
         [self.currentDetailedVC updateUI];
     }
@@ -148,17 +143,18 @@
 {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     NSString* title =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
     if (title == (id)[NSNull null]) { title = @"Unknown name"; }
     cell.textLabel.text = title;
     
     NSString* authorTitle =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"authorTitle"];
-    if (authorTitle == (id)[NSNull null]) { authorTitle = @"Unknown author"; }
-//    
+    if ([authorTitle isEqualToString:@""]) { authorTitle = @"Unknown author"; }
+    
     BOOL free = [[[self.books objectAtIndex:[indexPath row]] valueForKey:@"free"] boolValue];
     NSString* price = free ? @"бесплатная" : @"платная";
+    
     cell.detailTextLabel.text =  [NSString stringWithFormat:@"%@, %@", authorTitle, price];
-//
     cell.selected = NO;
     return cell;
 }

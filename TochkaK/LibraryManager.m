@@ -11,91 +11,41 @@
 #import "LibraryBookCreator.h"
 @interface LibraryManager ()
 @property (strong, nonatomic) NSURL* sourceURL;
-//@property (strong, nonatomic) LibraryServerCommunicator* communicator;
-//@property (strong, nonatomic) LibraryBookCreator* bookCreator;
-
 
 //URLConnection
 @property (strong, nonatomic) NSMutableData* dataRecieved;
-@property (strong, nonatomic) id <NSURLConnectionDelegate> delegate;
 @property (strong, nonatomic) NSURLConnection* getBooksConnection;
 @property (strong, nonatomic) NSURLConnection* detailedBooksConnection;
 @property NSInteger requstedBookID;
-//JSONSerialization
-
 
 //utility methods
 
+//creates local copy of the Library
+-(void) backupDBFromServer;
+
+//copies detailed info about the book into a local storage
+-(void) copyBookToDB: (LibraryBook*) book;
+
+//constructs URL that contains detailed info about the book with ID
+-(NSURL*) constructURLForBookWithID:(NSInteger) ID;
+
+//sends the request to the URL
+-(void) sendRequestToURL:(NSURL*) url connection:(NSURLConnection*) connection;
 @end
 
 
 
 @implementation LibraryManager
-@synthesize dataRecieved = _dataRecieved;
-@synthesize delegate = _delegate;
-@synthesize getBooksConnection = _getBooksConnection;
 
--(void) backupDBFromServer
+-(LibraryManager*) initWithSourceURL:(NSURL *)sourceURL
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    self = [super init];
+    if (self)
     {
-        return;
+        self.sourceURL = sourceURL;
     }
     
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
-    LibraryAppDelegate* appDelegate = (LibraryAppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [appDelegate managedObjectContext];
-    
-    for (LibraryBook* book in self.books) {
-        
-        //[self startGettingDetailedDescriptionOfBookWithID:book.ID];
-        
-        NSManagedObject* bookObject = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
-                                                                    inManagedObjectContext:context];
-        [bookObject setValue:[NSNumber numberWithInt:book.ID] forKey:@"bookID"];
-        [bookObject setValue:book.title forKey:@"title"];
-        [bookObject setValue:book.authorTitle forKey:@"authorTitle"];
-        [bookObject setValue:[NSNumber numberWithBool:book.free] forKey:@"free"];
-        NSData* img = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.url]];
-        [bookObject setValue:img forKey:@"image"];
-        
-        NSError *error;
-        if (![context save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
-    }
-}
--(void) copyBookToDB: (LibraryBook*) book
-{
-    LibraryAppDelegate* appDelegate = (LibraryAppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [appDelegate managedObjectContext];
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Book"
-                                                         inManagedObjectContext:context];
-    [request setEntity:entityDescription];
-    NSError* err = nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"bookID = %d ", book.ID];
-    [request setPredicate:predicate];
-    NSArray* requstedBook = [context executeFetchRequest:request error:&err];
-    
-    if (!([requstedBook lastObject] == nil))
-    {
-        NSManagedObject* bookObject = [requstedBook lastObject];
-        NSString* subtitle = [bookObject valueForKey:@"subtitle"];
-        if (subtitle == nil)
-        {
-            [bookObject setValue:book.subTitle forKey:@"subtitle"];
-            [bookObject setValue:book.published forKey:@"published"];
-            [bookObject setValue:book.description forKey:@"bookdescription"];
-            
-            NSError *error;
-            if (![context save:&error]) {
-                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-            }
-        }
-    }
-
+    return self;
 }
 
 -(void) startGettingBooks
@@ -114,6 +64,71 @@
     [self sendRequestToURL:[self constructURLForBookWithID:ID] connection:self.detailedBooksConnection];
 }
 
+
+-(void) backupDBFromServer
+{
+    //check if the app is launched for the first time
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        return;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    LibraryAppDelegate* appDelegate = (LibraryAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    
+    //save the essential information about each book in the local storage
+    for (LibraryBook* book in self.books) {
+        NSManagedObject* bookObject = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
+                                                                    inManagedObjectContext:context];
+        [bookObject setValue:[NSNumber numberWithInt:book.ID] forKey:@"bookID"];
+        [bookObject setValue:book.title forKey:@"title"];
+        [bookObject setValue:book.authorTitle forKey:@"authorTitle"];
+        [bookObject setValue:[NSNumber numberWithBool:book.free] forKey:@"free"];
+        NSData* img = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.url]];
+        [bookObject setValue:img forKey:@"image"];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+    }
+}
+
+-(void) copyBookToDB: (LibraryBook*) book
+{
+    LibraryAppDelegate* appDelegate = (LibraryAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Book"
+                                                         inManagedObjectContext:context];
+    [request setEntity:entityDescription];
+    NSError* err = nil;
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"bookID = %d ", book.ID];
+    [request setPredicate:predicate];
+    NSArray* requstedBook = [context executeFetchRequest:request error:&err];
+    
+    if (!([requstedBook lastObject] == nil))
+    {
+        //complement the book in the local storage with the details
+        NSManagedObject* bookObject = [requstedBook lastObject];
+        NSString* subtitle = [bookObject valueForKey:@"subtitle"];
+        if (subtitle == nil)
+        {
+            [bookObject setValue:book.subTitle forKey:@"subtitle"];
+            [bookObject setValue:book.published forKey:@"published"];
+            [bookObject setValue:book.description forKey:@"bookdescription"];
+            
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+        }
+    }
+
+}
+
 -(void) sendRequestToURL:(NSURL*) url connection:(NSURLConnection*) connection
 {
     BOOL success = YES;
@@ -125,42 +140,18 @@
     
     if (connection == self.getBooksConnection)
     {
-        self.getBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self succeed:success];
-        if (!success)
-        {
-        }
-        
+        self.getBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self ];
     }
     else if (connection == self.detailedBooksConnection)
     {
-        self.detailedBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self succeed:success];
-        if (!success)
-        {
-            
-        }
-//        if (!self.detailedBooksConnection)
-//        {
-//            _dataRecieved = nil;
-//        }
+        self.detailedBooksConnection = [LibraryServerCommunicator sendRequestToURL:url withDelegate:self];
     }
-    if (!success)//(!self.getBooksConnection)
+    if (!success)
     {
         _dataRecieved = nil;
     }
     
 }
-
--(LibraryManager*) initWithSourceURL:(NSURL *)sourceURL
-{
-    self = [super init];
-    if (self)
-    {
-        self.sourceURL = sourceURL;
-    }
-    
-    return self;
-}
-
 
 
 #pragma mark NSURLConnectionDelegate, NSURLConnectionDataDelegate protocols implementation
@@ -195,11 +186,9 @@
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-//    NSLog(@"fail with error");
-    //load from local DB
+    //load list of books from local DB
     if (connection == self.getBooksConnection)
     {
-        //Dtabase manager get list of books
         NSFetchRequest* request = [[NSFetchRequest alloc] init];
         NSManagedObjectContext* context = [(LibraryAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Book"
@@ -217,7 +206,7 @@
     }
     else if (connection == self.detailedBooksConnection)
     {
-        //Database manager get detailed description for book with ID
+        //load detailed book description from local DB
         NSFetchRequest* request = [[NSFetchRequest alloc] init];
         NSManagedObjectContext* context = [(LibraryAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Book"

@@ -16,5 +16,7 @@ enum sortingOrder {
 };
 
 @interface LibraryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+//an order according to wich the books in the table are sorted
 @property (nonatomic) enum sortingOrder order;
 @end
