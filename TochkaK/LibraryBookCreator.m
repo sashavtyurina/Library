@@ -29,32 +29,22 @@
     
     //NSError* err = nil;
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
-//    
-//    if (error)
-//    {
-//        NSLog(@"An error occured. %@", &error.description);
-//    }
     
     NSArray* booksRaw = [json valueForKey:@"books"];
     
-    for (NSDictionary* bookRaw in booksRaw) {        
+    for (NSDictionary* bookRaw in booksRaw) {
+        NSString* authorTitle = [bookRaw valueForKey:@"author_title"];
         LibraryBook* book = [[LibraryBook alloc]
                              initWithID: [[bookRaw objectForKey:@"id"] integerValue]
                              title:[bookRaw objectForKey:@"title"]
                              subtitle:@""
-                             authorTitle:[bookRaw valueForKey:@"author_title"]
+                             authorTitle:[authorTitle isEqual:[NSNull null]] ?@"" : authorTitle //[bookRaw valueForKey:@"author_title"]
                              url:[bookRaw valueForKey:@"img"]
                              published:@""
                              free:[[bookRaw objectForKey:@"free"] boolValue]
                              description:@"" ];
-        
-        //[self.books addObject:book];
         [books addObject:book];
     }
-    //NSLog(@"Count = %d", booksRaw.count);
-    
-    
-    
     return  books;
 }
 
@@ -91,5 +81,35 @@
                                             description:description];    
     return book;
     
+}
+
++(LibraryBook*) singleBookFromNSManagedObject: (NSManagedObject*) managedObject
+{
+    NSInteger ID = [[managedObject valueForKey:@"bookID"] integerValue];
+    NSString* title = [managedObject valueForKey:@"title"];
+    NSString* subtitle = [managedObject valueForKey:@"subtitle"];
+    NSString* authorTitle = [managedObject valueForKey:@"authorTitle"];
+    NSString* url = [managedObject valueForKey:@"url"];
+    NSString* published = [managedObject valueForKey:@"published"];
+    BOOL free = [[managedObject valueForKey:@"free"] boolValue];
+    NSString* description = [managedObject valueForKey:@"bookdescription"];
+    NSData* image = [managedObject valueForKey:@"image"];
+    
+    
+    title = [title isEqual:[NSNull null]] ? @"Unknown name" : title;
+    authorTitle = [authorTitle isEqual:[NSNull null]] ? @"Unknown author" : authorTitle;
+    url = [url isEqual:[NSNull null]] ? @"" : url;
+    description = [description isEqual:[NSNull null]] ? @"No description available" : description;
+    published = [published isEqual:[NSNull null]] ? @"" : published;
+    subtitle = [subtitle isEqual:[NSNull null]] ? @"" : subtitle;
+    LibraryBook* book = [[LibraryBook alloc] initWithID:ID
+                                                  title:title
+                                               subtitle:subtitle
+                                            authorTitle:authorTitle
+                                                    url:url
+                                              published:published
+                                                   free:free
+                                            description:description image:image];
+    return book;
 }
 @end

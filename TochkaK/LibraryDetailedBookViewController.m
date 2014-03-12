@@ -144,9 +144,16 @@
     self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.descriptionLabel.numberOfLines = 0;
 
-    self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+    if (self.bookToShow.image == nil)
+    {
+        self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+    }
+    else
+    {
+        self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
+    }
+    
     [self.scrollView addSubview:self.coverImage];
-
     [self.scrollView addSubview:self.titleLabel];
     [self.scrollView addSubview:self.subtitleLable];
     [self.scrollView addSubview:self.authorTitleLabel];
@@ -163,8 +170,16 @@
     self.subtitleLable.text = self.bookToShow.subTitle;
     self.freeLabel.text = self.bookToShow.free ? @"Бесплатная": @"Платная";
     self.publishedLabel.text = self.bookToShow.published;
-    
-    self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+    if (self.bookToShow.image == nil)
+    {
+        self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+    }
+    else
+    {
+        self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
+    }
+
+//    self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
     
     [self.descriptionLabel sizeToFit];
     [self.titleLabel sizeToFit];

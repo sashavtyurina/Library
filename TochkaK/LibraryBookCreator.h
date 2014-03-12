@@ -16,4 +16,6 @@
 
 //-(void) complementBook:(LibraryBook*) book withDetailedDescription:(NSData*) complementaryData;
 +(LibraryBook*) singleBookFromJSON:(NSData*)data error:(NSError**)error;
+
++(LibraryBook*) singleBookFromNSManagedObject: (NSManagedObject*) managedObject;
 @end

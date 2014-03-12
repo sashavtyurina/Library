@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString* published;
 @property (nonatomic) BOOL free;
 @property (strong, nonatomic) NSString* description;
+@property (strong, nonatomic) NSData* image;
 
 -(LibraryBook*) initWithID:(NSInteger) ID
                      title:(NSString*) title
@@ -26,4 +27,14 @@
                  published:(NSString*) published
                       free:(BOOL)free
                description:(NSString*) description;
+
+-(LibraryBook*) initWithID:(NSInteger) ID
+                     title:(NSString*) title
+                  subtitle:(NSString*) subtitle
+               authorTitle:(NSString*) authorTitle
+                       url:(NSString*)url
+                 published:(NSString*) published
+                      free:(BOOL)free
+               description:(NSString*) description
+                     image:(NSData*) image;
 @end
