@@ -12,38 +12,31 @@
 @interface LibraryOperation()
 
 @property (strong, nonatomic) LibraryManager* manager;
-@property (strong, nonatomic) NSData* data;
 @property (strong, nonatomic) NSURL* url;
+
+//get every book from the local chached DB
+-(NSArray*) fetchBooksFromDB;
+
+//transforms objects fetched from DB to NSArray of Books
+-(void) transfromFetchedObjectsToBooks:(NSArray*) fetchedObjects;
+
+//crates a cached copy of the data recieved from the server
+-(void) backupDBFromServer;
+
 @end
 
 @implementation LibraryOperation
 
--(id) initWithData:(NSData*) data manager:(LibraryManager*) manager
-{
+-(id) initWithURL:(NSURL*)url manager:(LibraryManager*) manager {
     self = [super init];
-    if (self)
-    {
-        self.manager = manager;
-        self.data = data;
-        
-    }
-    return  self;
-}
-
--(id) initWithURL:(NSURL*)url manager:(LibraryManager*) manager
-{
-    self = [super init];
-    if (self)
-    {
+    if (self) {
         self.manager = manager;
         self.url = url;
-        
     }
     return  self;
 }
 
--(NSArray*) fetchBooksFromDB
-{
+-(NSArray*) fetchBooksFromDB {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext* context = [(LibraryAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Book"
@@ -54,26 +47,21 @@
     return fetchedObjects;
 }
 
--(void) transfromFetchedObjectsToBooks:(NSArray*) fetchedObjects
-{
+-(void) transfromFetchedObjectsToBooks:(NSArray*) fetchedObjects {
     NSMutableArray* booksMutableArray = [[NSMutableArray alloc] init];
     for (NSManagedObject* bookObject in fetchedObjects) {
         [booksMutableArray addObject: [LibraryBookCreator singleBookFromNSManagedObject:bookObject ]];
     }
     self.manager.books = booksMutableArray;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+    });
     
 }
 
--(void) backupDBFromServer
-{
-    //check if the app is launched for the first time
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
-//    {
-//        return;
-//    }
-    
-//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+-(void) backupDBFromServer {
+
     LibraryAppDelegate* appDelegate = (LibraryAppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [appDelegate managedObjectContext];
     
@@ -90,30 +78,23 @@
     }
     
     NSError *error;
-    if (![context save:&error])
-    {
+    if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
 }
 
 
--(void) main
-{
+-(void) main {
     
     //got data in the DB?
     NSArray* fetchedObjects = [self fetchBooksFromDB];
-    if ([fetchedObjects count] != 0)
-    //if (![[fetchedObjects lastObject] isEqual: nil])
-    {
-//        get data from the database
+    if ([fetchedObjects count] != 0) {
+        //get data from the database
         [self transfromFetchedObjectsToBooks:fetchedObjects];
     }
-    else
-    {
+    else {
         //get data from the server
-        
-//    NSLog(@"parsing json data - start");
         NSURLRequest* request = [[NSURLRequest alloc] initWithURL:self.url];
         NSURLResponse* response = nil;
         NSError* err = nil;
@@ -122,22 +103,19 @@
                                       error:&err];
 
         //check if the data retrieved is nil
-        if (! [requestResult isEqual:nil])
-        {
+        if (! [requestResult isEqual:nil]) {
             self.manager.books = [LibraryBookCreator booksFromJSON:requestResult error:&err];
-            
             //save the loaded data to the DB
             [self backupDBFromServer];
-    
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"BOOKS_RETRIEVED" object:nil];
+            });
         }
-        else
-        {
+        
+        else {
             NSLog(@"no connection, no cached version. Operation failed.");
         }
     }
-
-//    NSLog(@"parsing json data - finish");
 }
 
 

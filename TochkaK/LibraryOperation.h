@@ -10,6 +10,5 @@
 #import "LibraryManager.h"
 
 @interface LibraryOperation : NSOperation
--(id) initWithData:(NSData*) data manager:(LibraryManager*) manager;
 -(id) initWithURL:(NSURL*) url manager:(LibraryManager*) manager;
 @end

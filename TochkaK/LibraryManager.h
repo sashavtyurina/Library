@@ -10,7 +10,7 @@
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
 
-@interface LibraryManager : NSObject <NSURLConnectionDelegate>
+@interface LibraryManager : NSObject //<NSURLConnectionDelegate>
 
 +(id) sharedManager;
 
