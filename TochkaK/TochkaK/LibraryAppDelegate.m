@@ -18,6 +18,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.tabBarController = [[UITabBarController alloc] init];
+//LibraryNavigationViewController
+    
+//    UINavigationController* titlesNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
+//    ((LibraryViewController*) [titlesNavigationController.viewControllers objectAtIndex:0]).order = TITLE;
+//    
+//    UINavigationController* authorsNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
+//    ((LibraryViewController*) [authorsNavigationController.viewControllers objectAtIndex:0]).order = AUTHOR_TITLE;
+//    
+//    UINavigationController* pricesNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
+//    ((LibraryViewController*) [pricesNavigationController.viewControllers objectAtIndex:0]).order = PRICE;
+//    
+//    NSArray* controllers = [NSArray arrayWithObjects:titlesNavigationController, authorsNavigationController, pricesNavigationController, nil];
+//    self.tabBarController.viewControllers = controllers;
     
     LibraryViewController* titlesVC = [[LibraryViewController alloc] init];
     titlesVC.order = TITLE;
@@ -44,9 +57,12 @@
     NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
     self.tabBarController.viewControllers = controllers;
 
+    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.tabBarController;
+        self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
     
     return YES;
 }

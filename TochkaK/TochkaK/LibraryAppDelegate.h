@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LibraryViewController.h"
+
 //#import "LibraryTabBarViewController.h"
 @interface LibraryAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,6 +20,8 @@
 
 //@property (readonly, strong, nonatomic) LibraryTabBarViewController *rootViewController;
 @property (strong, nonatomic) UITabBarController* tabBarController;
+//@property (strong, nonatomic) LibraryTabBarController* tabBarController;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

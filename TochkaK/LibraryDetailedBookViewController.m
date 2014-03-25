@@ -17,6 +17,15 @@
 @property (strong, nonatomic) UILabel* publishedLabel;
 @property (strong, nonatomic) UILabel* freeLabel;
 @property (strong, nonatomic) UIScrollView* scrollView;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabelOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *subtitleLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *publishedLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *freeLabelOutlet;
+
 @end
 
 @implementation LibraryDetailedBookViewController
@@ -154,6 +163,8 @@
     [self.scrollView addSubview:self.publishedLabel];
     [self.scrollView addSubview:self.freeLabel];
     [self.scrollView addSubview:self.descriptionLabel];
+
+    
 }
 
 -(void) updateUI

@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
+
 @interface LibraryManager : NSObject <NSURLConnectionDelegate>
+
++(id) sharedManager;
+
 //A collection of books
 @property (strong, nonatomic) NSArray* books;
 
@@ -17,7 +21,7 @@
 @property (weak, nonatomic) LibraryBook* requestedBook;
 
 //sourceURL - initial address of the book storage
--(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
+//-(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
 
 //get the list of the books
 -(void) startGettingBooks;

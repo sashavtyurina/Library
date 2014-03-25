@@ -12,6 +12,8 @@
 		261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */; };
 		261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C818CB947D007C13D3 /* LibraryBook.m */; };
 		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
+		26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FDE18E024A900C1C3A3 /* LibraryOperation.m */; };
+		26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */; };
 		266AF10D18CA5AA100A18C33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10C18CA5AA100A18C33 /* Foundation.framework */; };
 		266AF10F18CA5AA100A18C33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */; };
 		266AF11118CA5AA100A18C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11018CA5AA100A18C33 /* UIKit.framework */; };
@@ -52,6 +54,10 @@
 		261B28C818CB947D007C13D3 /* LibraryBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBook.m; sourceTree = "<group>"; };
 		261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDetailedBookViewController.h; sourceTree = "<group>"; };
 		261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDetailedBookViewController.m; sourceTree = "<group>"; };
+		26639FDD18E024A900C1C3A3 /* LibraryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryOperation.h; sourceTree = "<group>"; };
+		26639FDE18E024A900C1C3A3 /* LibraryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryOperation.m; sourceTree = "<group>"; };
+		26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrarySingleBookOperation.h; sourceTree = "<group>"; };
+		26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibrarySingleBookOperation.m; sourceTree = "<group>"; };
 		266AF10918CA5AA100A18C33 /* TochkaK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TochkaK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266AF10C18CA5AA100A18C33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +129,10 @@
 				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
 				260DE4A718CB0BA40036559F /* LibraryManager.h */,
 				260DE4A818CB0BA40036559F /* LibraryManager.m */,
+				26639FDD18E024A900C1C3A3 /* LibraryOperation.h */,
+				26639FDE18E024A900C1C3A3 /* LibraryOperation.m */,
+				26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */,
+				26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,9 +311,11 @@
 				261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */,
 				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
 				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
+				26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */,
 				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
+				26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */,
 				261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
 				260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */,

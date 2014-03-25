@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[LibraryManager startGettingBooks]:LibraryManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.getBooksListOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[LibraryViewController reloadUI]:LibraryViewController.m">
       </ContextState>
       <ContextState
@@ -12,6 +20,9 @@
                value = "books[2]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LibraryManager copyBookToDB:]:LibraryManager.m">
       </ContextState>
       <ContextState
          contextName = "-[LibraryViewController repopulateCurrentDetailedVC]:LibraryViewController.m">
@@ -64,7 +75,12 @@
          contextName = "-[LibraryTabBarViewController viewDidLoad]:LibraryTabBarViewController.m">
       </ContextState>
       <ContextState
-         contextName = "__33-[LibraryViewController reloadUI]_block_invoke:LibraryViewController.m">
+         contextName = "-[LibraryOperation main]:LibraryOperation.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[fetchedObjects lastObject]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[LibraryDetailedBookViewController loadView]:LibraryDetailedBookViewController.m">

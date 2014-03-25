@@ -24,6 +24,7 @@
         BOOL free = [[bookRaw objectForKey:@"free"] boolValue];
         NSString* url = [bookRaw valueForKey:@"img"];
         NSData* image = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        
         LibraryBook* book = [[LibraryBook alloc]
                              initWithID: [[bookRaw objectForKey:@"id"] integerValue]
                              title:[title isEqual:[NSNull null]] ? @"Unknown name" : title
@@ -33,7 +34,8 @@
                              published:@""
                              free:free
                              description:@""
-                             image:image];
+                             image:[image isEqual:[NSNull null]] ? nil : image];
+        
         [books addObject:book];
     }
     return  books;
@@ -95,6 +97,8 @@
     description = [description isEqual:[NSNull null]] ? @"No description available" : description;
     published = [published isEqual:[NSNull null]] ? @"" : published;
     subtitle = [subtitle isEqual:[NSNull null]] ? @"" : subtitle;
+    image = [image isEqual:[NSNull null]] ? nil : image;
+    
     LibraryBook* book = [[LibraryBook alloc] initWithID:ID
                                                   title:title
                                                subtitle:subtitle

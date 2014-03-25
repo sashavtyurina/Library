@@ -1,4 +1,4 @@
-//
+
 //  LibraryViewController.m
 //  TochkaK
 //
@@ -38,11 +38,13 @@
 }
 -(LibraryManager*) manager
 {
-    if (!_manager)
-    {
-        _manager = [[LibraryManager alloc] init];
-    }
-    return _manager;
+//    if (!_manager)
+//    {
+//        _manager = [[LibraryManager alloc] init];
+//    }
+//    return _manager;
+    return [LibraryManager sharedManager];
+
 }
 
 -(LibraryDetailedBookViewController*) currentDetailedVC
@@ -70,8 +72,13 @@
     
     [self.view addSubview:self.tableView];
     
-    self.manager = [self.manager initWithSourceURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"]];
+    //self.manager = [self.manager initWithSourceURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"]];
+    
+    //Add an operation to operation queue
+    
+    
     [self.manager startGettingBooks];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadUI)
                                                  name:@"BOOKS_RETRIEVED"
@@ -112,10 +119,10 @@
             }
             case AUTHOR_TITLE:
             {
-                NSString* s1 = [obj1 valueForKey:@"authorTitle"] == NULL ? @"" : [obj1 valueForKey:@"authorTitle"];
-                NSString* s2 = [obj2 valueForKey:@"authorTitle"] == NULL ? @"" : [obj2 valueForKey:@"authorTitle"];
-                if (s1 == (id)[NSNull null]) { s1 = @""; }
-                if (s2 == (id)[NSNull null]) { s2 = @""; }
+                NSString* s1 = [obj1 valueForKey:@"authorTitle"];
+                NSString* s2 = [obj2 valueForKey:@"authorTitle"];
+                if ([s1 isEqual:[NSNull null]]) { s1 = @""; }
+                if ([s2 isEqual:[NSNull null]]) { s2 = @""; }
                 return [s1 compare:s2];
                 break;
             }
@@ -145,7 +152,9 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     NSString* title =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
-    if (title == (id)[NSNull null]) { title = @"Unknown name"; }
+    
+    if ([title isEqual:[NSNull null]]) { title = @"Unknown name"; }
+    
     cell.textLabel.text = title;
     
     NSString* authorTitle =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"authorTitle"];
