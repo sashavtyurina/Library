@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "LibraryManager.h"
+#import "LibraryConstants.h"
 @interface LibrarySingleBookOperation : NSOperation
--(id) initWithData:(NSData*) data manager:(LibraryManager*) manager;
+@property (strong, nonatomic) LibraryBook* requestedBook;
+//-(id) initWithData:(NSData*) data manager:(LibraryManager*) manager;
+-(id) initWithBookID:(int) requestedBookID manager:(LibraryManager*) manager;
 @end

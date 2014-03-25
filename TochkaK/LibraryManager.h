@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
+#import "LibraryConstants.h"
 
 @interface LibraryManager : NSObject //<NSURLConnectionDelegate>
 
@@ -24,7 +25,7 @@
 //-(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
 
 //get the list of the books
--(void) startGettingBooks;
+-(void) startGettingBooks;// - ok
 
 //get a particular book with identifier ID
 -(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger) ID;

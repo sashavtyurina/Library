@@ -14,6 +14,7 @@
 		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
 		26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FDE18E024A900C1C3A3 /* LibraryOperation.m */; };
 		26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */; };
+		2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */; };
 		266AF10D18CA5AA100A18C33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10C18CA5AA100A18C33 /* Foundation.framework */; };
 		266AF10F18CA5AA100A18C33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */; };
 		266AF11118CA5AA100A18C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AF11018CA5AA100A18C33 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		26639FDE18E024A900C1C3A3 /* LibraryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryOperation.m; sourceTree = "<group>"; };
 		26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrarySingleBookOperation.h; sourceTree = "<group>"; };
 		26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibrarySingleBookOperation.m; sourceTree = "<group>"; };
+		2663A02918E1C78300C1C3A3 /* LibraryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryConstants.h; sourceTree = "<group>"; };
+		2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryConstants.m; sourceTree = "<group>"; };
 		266AF10918CA5AA100A18C33 /* TochkaK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TochkaK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266AF10C18CA5AA100A18C33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +136,8 @@
 				26639FDE18E024A900C1C3A3 /* LibraryOperation.m */,
 				26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */,
 				26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */,
+				2663A02918E1C78300C1C3A3 /* LibraryConstants.h */,
+				2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
+				2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */,
 				26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */,
 				261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,

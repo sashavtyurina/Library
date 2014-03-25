@@ -69,7 +69,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.view addSubview:self.tableView];
     
     //self.manager = [self.manager initWithSourceURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"]];
@@ -102,7 +101,7 @@
     
     if (selectedIndex == myIndex)
     {
-        self.currentDetailedVC.bookToShow = self.manager.requestedBook;
+        self.currentDetailedVC.bookToShow = [[LibraryManager sharedManager] requestedBook]; //self.manager.requestedBook;
         [self.currentDetailedVC updateUI];
     }
 }
@@ -171,7 +170,10 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryBook* book = [self.books objectAtIndex:indexPath.row];
-    [self.manager startGettingDetailedDescriptionOfBookWithID:book.ID];
+    
+    //how can self.manager be a nil?! it's a singleton
+    //[self.manager startGettingDetailedDescriptionOfBookWithID:book.ID];
+    [[LibraryManager sharedManager] startGettingDetailedDescriptionOfBookWithID:book.ID];
     [self.navigationController pushViewController:self.currentDetailedVC animated:YES];
 }
 
