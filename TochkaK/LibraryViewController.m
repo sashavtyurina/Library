@@ -40,7 +40,8 @@
 
 - (LibraryDetailedBookViewController *)currentDetailedVC {
     if (!_currentDetailedVC) {
-        _currentDetailedVC = [[LibraryDetailedBookViewController alloc] init];
+        //_currentDetailedVC = [[LibraryDetailedBookViewController alloc] init];
+        _currentDetailedVC = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailedBookViewController"];//@"TestViewController"];
     }
     return _currentDetailedVC;
 }
@@ -144,6 +145,7 @@
     LibraryBook *book = [self.books objectAtIndex:indexPath.row];
     //how can self.manager be a nil?! it's a singleton
     [[LibraryManager sharedManager] requestDetailedBookWithID:book.ID];
+    
     [self.navigationController pushViewController:self.currentDetailedVC animated:YES];
 }
 

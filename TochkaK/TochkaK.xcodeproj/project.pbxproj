@@ -32,6 +32,7 @@
 		266AF13818CA5AA200A18C33 /* TochkaKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF13718CA5AA200A18C33 /* TochkaKTests.m */; };
 		266AF14218CA5D5D00A18C33 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266AF14118CA5D5D00A18C33 /* main.storyboard */; };
 		266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF14718CA650800A18C33 /* LibraryViewController.m */; };
+		267993CC18E31C3000CECA4D /* LibraryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267993CB18E31C3000CECA4D /* LibraryTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		266AF14118CA5D5D00A18C33 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 		266AF14618CA650800A18C33 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
 		266AF14718CA650800A18C33 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		267993CA18E31C3000CECA4D /* LibraryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTestViewController.h; sourceTree = "<group>"; };
+		267993CB18E31C3000CECA4D /* LibraryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */,
 				266AF14618CA650800A18C33 /* LibraryViewController.h */,
 				266AF14718CA650800A18C33 /* LibraryViewController.m */,
+				267993CA18E31C3000CECA4D /* LibraryTestViewController.h */,
+				267993CB18E31C3000CECA4D /* LibraryTestViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
 				260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */,
+				267993CC18E31C3000CECA4D /* LibraryTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

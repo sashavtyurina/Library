@@ -19,12 +19,14 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabelOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabelOutlet;
-@property (weak, nonatomic) IBOutlet UIImageView *coverImageOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *publishedLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *freeLabelOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabelOutlet;
+
+
 
 @end
 
@@ -90,81 +92,92 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+//        NSLog(@"Initializing with bundle");
     }
     return self;
 }
 
+//- (id)initWithCoder:(NSCoder *)aDecoder {
+//    NSLog(@"Initializing with coder");
+//    NSLog(@"current book: %@", self.bookToShow);
+//    return self;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    self.scrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.scrollView];
-    
-	// Do any additional setup after loading the view.
-    self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.font = [UIFont fontWithName:@"Courier" size:24];
-    self.titleLabel.text = @"";
-    
-    self.subtitleLable.textColor = [UIColor blackColor];
-    self.subtitleLable.font = [UIFont fontWithName:@"Courier" size:20];
-    self.subtitleLable.text = @"";
-    
-    self.authorTitleLabel.textColor = [UIColor grayColor];
-    self.authorTitleLabel.font = [UIFont fontWithName:@"Courier" size:20];
-    self.authorTitleLabel.text = @"";
-    
-    self.publishedLabel.textColor = [UIColor grayColor];
-    self.publishedLabel.font = [UIFont fontWithName:@"Courier" size:20];
-    self.publishedLabel.text = @"";
-    
-    self.freeLabel.textColor = [UIColor grayColor];
-    self.freeLabel.font = [UIFont fontWithName:@"Courier" size:20];
-    self.freeLabel.text = @"";
-    
-    self.descriptionLabel.text = @"Description: ";
-    self.descriptionLabel.textColor = [UIColor blackColor];
-    self.descriptionLabel.font = [UIFont fontWithName:@"Courier" size:18];
-    self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.descriptionLabel.numberOfLines = 0;
-
-    if (self.bookToShow.image == nil) {
-//        self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-    } else {
-        self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
-    }
-    
-    [self.scrollView addSubview:self.coverImage];
-    [self.scrollView addSubview:self.titleLabel];
-    [self.scrollView addSubview:self.subtitleLable];
-    [self.scrollView addSubview:self.authorTitleLabel];
-    [self.scrollView addSubview:self.publishedLabel];
-    [self.scrollView addSubview:self.freeLabel];
-    [self.scrollView addSubview:self.descriptionLabel];
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    
+//    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+//    self.scrollView.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:self.scrollView];
+//    
+//	// Do any additional setup after loading the view.
+//    self.titleLabel.textColor = [UIColor blackColor];
+//    self.titleLabel.font = [UIFont fontWithName:@"Courier" size:24];
+//    self.titleLabel.text = @"";
+//    
+//    self.subtitleLable.textColor = [UIColor blackColor];
+//    self.subtitleLable.font = [UIFont fontWithName:@"Courier" size:20];
+//    self.subtitleLable.text = @"";
+//    
+//    self.authorTitleLabel.textColor = [UIColor grayColor];
+//    self.authorTitleLabel.font = [UIFont fontWithName:@"Courier" size:20];
+//    self.authorTitleLabel.text = @"";
+//    
+//    self.publishedLabel.textColor = [UIColor grayColor];
+//    self.publishedLabel.font = [UIFont fontWithName:@"Courier" size:20];
+//    self.publishedLabel.text = @"";
+//    
+//    self.freeLabel.textColor = [UIColor grayColor];
+//    self.freeLabel.font = [UIFont fontWithName:@"Courier" size:20];
+//    self.freeLabel.text = @"";
+//    
+//    self.descriptionLabel.text = @"Description: ";
+//    self.descriptionLabel.textColor = [UIColor blackColor];
+//    self.descriptionLabel.font = [UIFont fontWithName:@"Courier" size:18];
+//    self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//    self.descriptionLabel.numberOfLines = 0;
+//
+//    if (self.bookToShow.image == nil) {
+////        self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+//    } else {
+//        self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
+//    }
+//    
+//    [self.scrollView addSubview:self.coverImage];
+//    [self.scrollView addSubview:self.titleLabel];
+//    [self.scrollView addSubview:self.subtitleLable];
+//    [self.scrollView addSubview:self.authorTitleLabel];
+//    [self.scrollView addSubview:self.publishedLabel];
+//    [self.scrollView addSubview:self.freeLabel];
+//    [self.scrollView addSubview:self.descriptionLabel];
 }
 
 - (void)updateUI {
-    self.titleLabel.text = self.bookToShow.title;
-    self.authorTitleLabel.text = self.bookToShow.authorTitle;
-    self.descriptionLabel.text = [NSString stringWithFormat:@"%@: %@", @"Description", self.bookToShow.description];
-    self.subtitleLable.text = self.bookToShow.subTitle;
-    self.freeLabel.text = self.bookToShow.free ? @"Бесплатная": @"Платная";
-    self.publishedLabel.text = self.bookToShow.published;
-    if (self.bookToShow.image == nil) {
-//        self.coverImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-    } else {
-        self.coverImage.image = [UIImage imageWithData:self.bookToShow.image];
-    }
-    [self.descriptionLabel sizeToFit];
-    [self.titleLabel sizeToFit];
-    [self.authorTitleLabel sizeToFit];
-    [self.subtitleLable sizeToFit];
-    [self.freeLabel sizeToFit];
-    [self.publishedLabel sizeToFit];
+    NSLog(@"Showing book: %@", self.bookToShow);
+    self.titleLabelOutlet.text = self.bookToShow.title;
+    self.subtitleLabelOutlet.text = self.bookToShow.subTitle;
+    self.authorLabelOutlet.text = self.bookToShow.authorTitle;
+    self.descriptionLabelOutlet.text = self.bookToShow.description;
     
-    self.scrollView.contentSize =  CGSizeMake(320, self.titleLabel.frame.size.height+ self.authorTitleLabel.frame.size.height + self.descriptionLabel.frame.size.height + 50);
+//    self.titleLabel.text = self.bookToShow.title;
+//    self.authorTitleLabel.text = self.bookToShow.authorTitle;
+//    self.descriptionLabel.text = [NSString stringWithFormat:@"%@: %@", @"Description", self.bookToShow.description];
+//    self.subtitleLable.text = self.bookToShow.subTitle;
+//    self.freeLabel.text = self.bookToShow.free ? @"Бесплатная": @"Платная";
+//    self.publishedLabel.text = self.bookToShow.published;
+//    if (self.bookToShow.image == nil) {
+//        self.coverImageOutlet.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+//    } else {
+//        self.coverImageOutlet.image = [UIImage imageWithData:self.bookToShow.image];
+//    }
+//    [self.descriptionLabel sizeToFit];
+//    [self.titleLabel sizeToFit];
+//    [self.authorTitleLabel sizeToFit];
+//    [self.subtitleLable sizeToFit];
+//    [self.freeLabel sizeToFit];
+//    [self.publishedLabel sizeToFit];
+//    
+//    self.scrollView.contentSize =  CGSizeMake(320, self.titleLabel.frame.size.height+ self.authorTitleLabel.frame.size.height + self.descriptionLabel.frame.size.height + 50);
 }
 
 - (void)didReceiveMemoryWarning {
