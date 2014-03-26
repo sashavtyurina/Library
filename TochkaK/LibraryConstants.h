@@ -7,5 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-extern NSString *const BookDetailsRetrievedFromServer;
-extern NSString *const BookDetailsRetrieved;
+
+//Notifications from NSOperations to Manager
+extern NSString * const BookDetailsRetrievedFromServer;
+extern NSString * const BooksListRetrievedFromServer;
+
+//Notifications from Manager to VC
+extern NSString * const BookDetailsIsReadyToBePresented;
+extern NSString * const BooksListIsReadyToBePresented;
+
+extern NSString * const BookDetailsRetrieved;
+//extern NSString * const Book

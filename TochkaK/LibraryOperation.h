@@ -10,5 +10,5 @@
 #import "LibraryManager.h"
 
 @interface LibraryOperation : NSOperation
--(id) initWithURL:(NSURL*) url manager:(LibraryManager*) manager;
+- (id)initWithURL:(NSURL *)url manager:(LibraryManager *)manager;
 @end

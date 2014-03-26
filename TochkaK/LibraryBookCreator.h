@@ -12,11 +12,11 @@
 @interface LibraryBookCreator : NSObject
 
 //transforms JSON object into an array of LibraryBooks
-+(NSArray*) booksFromJSON: (NSData*)data error:(NSError**) error;
++ (NSArray *)booksFromJSON:(NSData *)data error:(NSError **)error;
 
 //transfroms JSON object into single LibraryBook
-+(LibraryBook*) singleBookFromJSON:(NSData*)data error:(NSError**)error;
++ (LibraryBook *)singleBookFromJSON:(NSData *)data error:(NSError **)error;
 
 //transforms NSManagedObject into single LibraryBook
-+(LibraryBook*) singleBookFromNSManagedObject: (NSManagedObject*) managedObject;
++ (LibraryBook *)singleBookFromNSManagedObject:(NSManagedObject *)managedObject;
 @end

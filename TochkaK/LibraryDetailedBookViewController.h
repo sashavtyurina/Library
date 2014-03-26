@@ -10,7 +10,7 @@
 #import "LibraryBook.h"
 //ViewController that shows the detailed information about a chosen book
 @interface LibraryDetailedBookViewController : UIViewController
-@property (strong, nonatomic) LibraryBook* bookToShow;
--(void) updateUI;
+@property (strong, nonatomic) LibraryBook *bookToShow;
+- (void)updateUI;
 
 @end

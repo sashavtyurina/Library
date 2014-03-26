@@ -10,24 +10,29 @@
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
 #import "LibraryConstants.h"
+@protocol SingleBookOperationDelegate <NSObject>
 
-@interface LibraryManager : NSObject //<NSURLConnectionDelegate>
-
-+(id) sharedManager;
-
-//A collection of books
-@property (strong, nonatomic) NSArray* books;
-
-//A single book  currently requested
-@property (weak, nonatomic) LibraryBook* requestedBook;
-
-//sourceURL - initial address of the book storage
-//-(LibraryManager*) initWithSourceURL:(NSURL*) sourceURL;
-
-//get the list of the books
--(void) startGettingBooks;// - ok
-
-//get a particular book with identifier ID
--(void) startGettingDetailedDescriptionOfBookWithID:(NSInteger) ID;
+@required - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook;
 
 @end
+
+
+@interface LibraryManager : NSObject <SingleBookOperationDelegate>
+
++ (id)sharedManager;
+
+//A collection of books
+@property (strong, nonatomic) NSArray *books;
+
+//A single book  currently requested
+@property (strong, nonatomic) LibraryBook *requestedBook;
+
+//get the list of the books
+- (void)requestBooksList;
+
+//get detailed description of a particular book with ID
+- (void)requestDetailedBookWithID:(NSInteger)requestedBookID;
+
+@end
+
+

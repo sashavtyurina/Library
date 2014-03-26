@@ -12,5 +12,6 @@
 @interface LibrarySingleBookOperation : NSOperation
 @property (strong, nonatomic) LibraryBook* requestedBook;
 //-(id) initWithData:(NSData*) data manager:(LibraryManager*) manager;
--(id) initWithBookID:(int) requestedBookID manager:(LibraryManager*) manager;
+- (id)initWithBookID:(int)requestedBookID manager:(LibraryManager *)manager;
+- (id)initWithBookID:(int)requestedBookID delegate:(id<SingleBookOperationDelegate>)delegate;
 @end

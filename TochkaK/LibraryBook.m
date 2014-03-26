@@ -10,19 +10,17 @@
 
 @implementation LibraryBook
 
--(LibraryBook*) initWithID:(NSInteger) ID
-                     title:(NSString*) title
+- (LibraryBook *)initWithID:(NSInteger)ID
+                     title:(NSString *)title
                   subtitle:(NSString *)subtitle
                authorTitle:(NSString *)authorTitle
                        url:(NSString *)url
                  published:(NSString *)published
                       free:(BOOL)free
                description:(NSString *)description
-                     image:(NSData *)image
-{
+                     image:(NSData *)image {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         self.ID = ID;
         self.title = title;
         self.subTitle = subtitle;
