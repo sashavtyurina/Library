@@ -9,29 +9,19 @@
 #import "LibrarySingleBookOperation.h"
 #import "LibraryBookCreator.h"
 @interface LibrarySingleBookOperation()
-@property (strong, nonatomic) LibraryManager *manager;
-@property (strong, nonatomic) id<SingleBookOperationDelegate> delegate;
+
 @property (assign, nonatomic) int requestedBookID;
 
 - (NSURL *)constructURLForBookWithID:(NSInteger)ID ;
+
 @end
 
 @implementation LibrarySingleBookOperation
 
-- (id)initWithBookID:(int)requestedBookID manager:(LibraryManager *)manager {
+- (id)initWithBookID:(int)requestedBookID {
     self = [super init];
     if (self) {
         self.requestedBookID = requestedBookID;
-        self.manager = manager;
-    }
-    return self;
-}
-
-- (id)initWithBookID:(int)requestedBookID delegate:(id<SingleBookOperationDelegate>)delegate {
-    self = [super init];
-    if (self) {
-        self.requestedBookID = requestedBookID;
-        self.delegate = delegate;   
     }
     return self;
 }

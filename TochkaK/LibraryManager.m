@@ -53,46 +53,29 @@
     return  _operationQueue;
 }
 
-- (void)makeCopyOfRequestedBook { //?
-    [[LibraryManager sharedManager] setRequestedBook:[[[LibraryManager sharedManager] getSingleBookOperation] requestedBook]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsRetrieved object:nil];
-}
-
 - (LibraryManager *)init {
     self = [super init];
     //do we need custom initialization here?
     return  self;
 }
 
-- (void) saveRequestedBookDetails {
-    //
-    NSLog(@"requstedBookID: %i", [[LibraryManager sharedManager] requstedBookID]);
-    NSLog(@"requstedBookID: %i", self.requstedBookID);
-    NSArray *requestedBook = [self fetchBookWithIDFromDB:[[LibraryManager sharedManager] requstedBookID]];
-    LibraryBook *b = [LibraryBookCreator singleBookFromNSManagedObject:[requestedBook lastObject]];
-    
-    [[LibraryManager sharedManager] setRequestedBook:b];
-    //post notification for VC
-    [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsIsReadyToBePresented object:nil];
-}
-
-//get list of books
+//Manage List of Books
 - (void)requestBooksList {
     LibraryOperation *operation = [[LibraryOperation alloc] initWithURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"]
                                                                 manager:[LibraryManager sharedManager]];
     [[[LibraryManager sharedManager] operationQueue] addOperation:operation];
 }
 
-//get a single book
+//Manage Detailed Description of Single Book
+
 - (void)requestDetailedBookWithID:(NSInteger)requestedBookID {
     [[LibraryManager sharedManager] setRequstedBookID:requestedBookID];
     NSArray *requestedBook = [self fetchBookWithIDFromDB:requestedBookID];
     
-    //we found smth in the database
     if ([requestedBook count] != 0) {
         LibraryBook *b = [LibraryBookCreator singleBookFromNSManagedObject:[requestedBook lastObject]];
+        
         //is this record full or does it need completion?
-
         BOOL subtitleIsEmpty = b.subTitle == nil;
         BOOL publishedIsEmpty = b.published == nil;
         BOOL descriptionIsEmpty = b.description == nil;
@@ -102,12 +85,23 @@
             [[LibraryManager sharedManager] setRequestedBook:b];
             [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsIsReadyToBePresented object:nil];
         } else {
-            LibrarySingleBookOperation *operation = [[LibrarySingleBookOperation alloc] initWithBookID:requestedBookID
-                                                                                              delegate:[LibraryManager sharedManager]];
+            LibrarySingleBookOperation *operation = [[LibrarySingleBookOperation alloc] initWithBookID:requestedBookID];
             [[[LibraryManager sharedManager] operationQueue] addOperation:operation];
         }
     }
 }
+
+- (void) saveRequestedBookDetails {
+
+    NSArray *requestedBook = [self fetchBookWithIDFromDB:[[LibraryManager sharedManager] requstedBookID]];
+    LibraryBook *b = [LibraryBookCreator singleBookFromNSManagedObject:[requestedBook lastObject]];
+    [[LibraryManager sharedManager] setRequestedBook:b];
+    //post notification for VC
+    [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsIsReadyToBePresented object:nil];
+}
+
+
+
 
 - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook {
     [[LibraryManager sharedManager] setRequestedBook:requestedLibraryBook];
@@ -125,7 +119,6 @@
     NSError *err = nil;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"bookID = %d ", bookID];
     request.predicate = predicate;
-//    [request setPredicate:predicate];
     NSArray *requstedBook = [context executeFetchRequest:request error:&err];
     return requstedBook;
 }

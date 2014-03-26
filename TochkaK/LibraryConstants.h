@@ -17,4 +17,3 @@ extern NSString * const BookDetailsIsReadyToBePresented;
 extern NSString * const BooksListIsReadyToBePresented;
 
 extern NSString * const BookDetailsRetrieved;
-//extern NSString * const Book

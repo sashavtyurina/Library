@@ -34,7 +34,6 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 240, 25)];
-        
     }
     return _titleLabel;
 }
@@ -42,7 +41,6 @@
 - (UILabel *)subtitleLable {
     if (!_subtitleLable) {
         _subtitleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 240, 25)];
-        
     }
     return _subtitleLable;
 }
@@ -50,7 +48,6 @@
 - (UILabel *)authorTitleLabel {
     if (!_authorTitleLabel) {
         _authorTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 300, 25)];
-        
     }
     return _authorTitleLabel;
 }
@@ -58,7 +55,6 @@
 - (UILabel *)publishedLabel {
     if (!_publishedLabel) {
         _publishedLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 110, 300, 25)];
-        
     }
     return  _publishedLabel;
 }
@@ -66,7 +62,6 @@
 - (UILabel *)freeLabel {
     if (!_freeLabel) {
         _freeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 140, 300, 25)];
-        
     }
     return  _freeLabel;
 }
@@ -74,7 +69,6 @@
 - (UILabel *)descriptionLabel {
     if (!_descriptionLabel) {
         _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 170, 300, 75)];
-        
     }
     return _descriptionLabel;
 }
@@ -82,7 +76,6 @@
 - (LibraryBook *)bookToShow {
     if (!_bookToShow) {
         _bookToShow = [[LibraryBook alloc] init];
-        
     }
     return _bookToShow;
 }
@@ -90,7 +83,6 @@
 - (UIImageView *)coverImage {
     if (!_coverImage) {
         _coverImage = [[UIImageView alloc] initWithFrame:CGRectMake(250, 40, 50, 50)];
-        
     }
     return _coverImage;
 }

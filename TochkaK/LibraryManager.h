@@ -10,15 +10,15 @@
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
 #import "LibraryConstants.h"
-@protocol SingleBookOperationDelegate <NSObject>
+//@protocol SingleBookOperationDelegate <NSObject>
+//
+//@required - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook;
+//
+//@end
 
-@required - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook;
 
-@end
-
-
-@interface LibraryManager : NSObject <SingleBookOperationDelegate>
-
+@interface LibraryManager : NSObject
+#warning change return type of sharedManager from id to LibraryManager
 + (id)sharedManager;
 
 //A collection of books

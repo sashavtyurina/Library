@@ -26,19 +26,15 @@
     }
     return _tableView;
 }
+
 - (UINavigationBar *)navigationBar {
     if (!_navigationBar) {
         _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     }
     return _navigationBar;
 }
-- (LibraryManager *)manager
-{
-//    if (!_manager)
-//    {
-//        _manager = [[LibraryManager alloc] init];
-//    }
-//    return _manager;
+
+- (LibraryManager *)manager {
     return [LibraryManager sharedManager];
 }
 
@@ -53,7 +49,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
     }
     return self;
 }
@@ -62,23 +57,12 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     
-    //self.manager = [self.manager initWithSourceURL:[NSURL URLWithString:@"http://test.tochkak.ru/list.json"]];
-    
-    //Add an operation to operation queue
-    
-    
-    //[self.manager startGettingBooks];
     [self.manager requestBooksList];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadUI)
                                                  name:@"BOOKS_RETRIEVED"
                                                object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(repopulateCurrentDetailedVC)
-//                                                 name:@"BOOK_DETAILS_RETRIEVED"
-//                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(repopulateCurrentDetailedVC)
@@ -95,7 +79,7 @@
     NSInteger myIndex = [parent.viewControllers indexOfObject:self.navigationController];
     
     if (selectedIndex == myIndex) {
-        self.currentDetailedVC.bookToShow = [[LibraryManager sharedManager] requestedBook]; //self.manager.requestedBook;
+        self.currentDetailedVC.bookToShow = [[LibraryManager sharedManager] requestedBook];
         [self.currentDetailedVC updateUI];
     }
 }
@@ -158,10 +142,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LibraryBook *book = [self.books objectAtIndex:indexPath.row];
-    
     //how can self.manager be a nil?! it's a singleton
-    //[self.manager startGettingDetailedDescriptionOfBookWithID:book.ID];
-    //[[LibraryManager sharedManager] startGettingDetailedDescriptionOfBookWithID:book.ID];
     [[LibraryManager sharedManager] requestDetailedBookWithID:book.ID];
     [self.navigationController pushViewController:self.currentDetailedVC animated:YES];
 }

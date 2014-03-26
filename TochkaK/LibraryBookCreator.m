@@ -20,7 +20,7 @@
         NSString *authorTitle = [bookRaw valueForKey:@"author_title"];
         BOOL free = [[bookRaw objectForKey:@"free"] boolValue];
         NSString *url = [bookRaw valueForKey:@"img"];
-        NSData *image = nil; //[NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        NSData *image = nil; 
         
         LibraryBook *book = [[LibraryBook alloc] initWithID:[[bookRaw objectForKey:@"id"] integerValue]
                                                       title:[title isEqual:[NSNull null]] ? @"Unknown name" : title
@@ -48,7 +48,7 @@
     NSString *published = [json valueForKey:@"published"];
     BOOL free = [[json valueForKey:@"free"] boolValue];
     NSString *description = [json valueForKey:@"description"];
-    NSData *image = nil; //[NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    NSData *image = nil;
 
     title = [title isEqual:[NSNull null]] ? @"Unknown name" : title;
     authorTitle = [authorTitle isEqual:[NSNull null]] ? @"Unknown author" : authorTitle;
@@ -79,7 +79,7 @@
     NSString *published = [managedObject valueForKey:@"published"];
     BOOL free = [[managedObject valueForKey:@"free"] boolValue];
     NSString *description = [managedObject valueForKey:@"bookdescription"];
-    NSData *image = nil; //[managedObject valueForKey:@"image"];
+    NSData *image = nil;
     
     
     title = [title isEqual:[NSNull null]] ? @"Unknown name" : title;
@@ -88,7 +88,7 @@
     description = [description isEqual:[NSNull null]] ? @"No description available" : description;
     published = [published isEqual:[NSNull null]] ? @"" : published;
     subtitle = [subtitle isEqual:[NSNull null]] ? @"" : subtitle;
-    image = nil; //[image isEqual:[NSNull null]] ? nil : image;
+    image = nil;
     
     LibraryBook *book = [[LibraryBook alloc] initWithID:ID
                                                   title:title

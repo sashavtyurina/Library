@@ -72,7 +72,7 @@
         [bookObject setValue:book.title forKey:@"title"];
         [bookObject setValue:book.authorTitle forKey:@"authorTitle"];
         [bookObject setValue:[NSNumber numberWithBool:book.free] forKey:@"free"];
-        NSData *img = nil; //[NSData dataWithContentsOfURL:[NSURL URLWithString:book.url]];
+        NSData *img = nil;
         [bookObject setValue:img forKey:@"image"];
     }
     
@@ -83,7 +83,7 @@
 }
 
 - (void)main {
-    //got data in the DB?
+    //got the data in the DB?
     NSArray *fetchedObjects = [self fetchBooksFromDB];
     if ([fetchedObjects count] != 0) {
         //get data from the database
