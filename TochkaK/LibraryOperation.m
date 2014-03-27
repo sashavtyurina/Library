@@ -74,6 +74,8 @@
         [bookObject setValue:[NSNumber numberWithBool:book.free] forKey:@"free"];
         NSData *img = nil;
         [bookObject setValue:img forKey:@"image"];
+        
+        [bookObject setValue:book.url forKey:@"url"];
     }
     
     NSError *error;

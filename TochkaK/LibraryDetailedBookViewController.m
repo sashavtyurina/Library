@@ -165,11 +165,11 @@
 //    self.subtitleLable.text = self.bookToShow.subTitle;
 //    self.freeLabel.text = self.bookToShow.free ? @"Бесплатная": @"Платная";
 //    self.publishedLabel.text = self.bookToShow.published;
-//    if (self.bookToShow.image == nil) {
-//        self.coverImageOutlet.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-//    } else {
-//        self.coverImageOutlet.image = [UIImage imageWithData:self.bookToShow.image];
-//    }
+    if (self.bookToShow.image == nil) {
+        self.coverImageOutlet.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+    } else {
+        self.coverImageOutlet.image = [UIImage imageWithData:self.bookToShow.image];
+    }
 //    [self.descriptionLabel sizeToFit];
 //    [self.titleLabel sizeToFit];
 //    [self.authorTitleLabel sizeToFit];
