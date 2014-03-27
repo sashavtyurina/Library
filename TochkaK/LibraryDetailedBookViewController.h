@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LibraryBook.h"
+#import "LibraryDetailedView.h"
 //ViewController that shows the detailed information about a chosen book
 @interface LibraryDetailedBookViewController : UIViewController
 @property (strong, nonatomic) LibraryBook *bookToShow;
