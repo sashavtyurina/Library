@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *freeLabelOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabelOutlet;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewOutlet;
 
 
 
@@ -104,6 +105,7 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self updateUI];
 //    self.view.backgroundColor = [UIColor whiteColor];
 //    
 //    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
@@ -152,12 +154,23 @@
 //    [self.scrollView addSubview:self.descriptionLabel];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    self.titleLabelOutlet.text = @"";
+    self.authorLabelOutlet.text = @"";
+    self.subtitleLabelOutlet.text = @"";
+    self.freeLabelOutlet.text = @"";
+    self.descriptionLabelOutlet.text = @"";
+    self.coverImageOutlet.image = nil;
+    [self.scrollViewOutlet setContentOffset:CGPointMake(0, 0)];
+}
+
 - (void)updateUI {
-    NSLog(@"Showing book: %@", self.bookToShow);
+//    NSLog(@"Showing book: %@", self.bookToShow);
     self.titleLabelOutlet.text = self.bookToShow.title;
     self.subtitleLabelOutlet.text = self.bookToShow.subTitle;
     self.authorLabelOutlet.text = self.bookToShow.authorTitle;
     self.descriptionLabelOutlet.text = self.bookToShow.description;
+    self.freeLabelOutlet.text = self.bookToShow.free ? @"free" : @"$$$";
     
 //    self.titleLabel.text = self.bookToShow.title;
 //    self.authorTitleLabel.text = self.bookToShow.authorTitle;
@@ -178,6 +191,10 @@
 //    [self.publishedLabel sizeToFit];
 //    
 //    self.scrollView.contentSize =  CGSizeMake(320, self.titleLabel.frame.size.height+ self.authorTitleLabel.frame.size.height + self.descriptionLabel.frame.size.height + 50);
+    //[self.scrollViewOutlet sizeToFit];
+    NSLog(@"uiscrollview height: %f", self.scrollViewOutlet.bounds.size.height);
+    NSLog(@"description label height: %f", self.descriptionLabelOutlet.bounds.size.height);
+
 }
 
 - (void)didReceiveMemoryWarning {
