@@ -14,18 +14,21 @@
 @property (strong, nonatomic) LibraryManager *manager;
 
 @property (strong, nonatomic) UINavigationBar *navigationBar;
-@property (strong, nonatomic) UITableView *tableView;
+//@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) LibraryDetailedBookViewController *currentDetailedVC;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
+
 @end
 
 @implementation LibraryViewController
 
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
-    }
-    return _tableView;
-}
+//- (UITableView *)tableView {
+//    if (!_tableView) {
+//        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
+//    }
+//    return _tableView;
+//}
 
 - (UINavigationBar *)navigationBar {
     if (!_navigationBar) {
@@ -56,10 +59,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
-    
+    NSLog(@"did load");
+//    [self.view addSubview:self.tableView];
+//    
     [self.manager requestBooksList];
-    
+//
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadUI)
                                                  name:@"BOOKS_RETRIEVED"
@@ -69,8 +73,8 @@
                                              selector:@selector(repopulateCurrentDetailedVC)
                                                  name:BookDetailsIsReadyToBePresented
                                                object:nil];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableViewOutlet.delegate = self;
+    self.tableViewOutlet.dataSource = self;
 }
 
 - (void)repopulateCurrentDetailedVC {
@@ -113,7 +117,8 @@
                 break;
         }
     }];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    [self.tableViewOutlet reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,6 +148,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LibraryBook *book = [self.books objectAtIndex:indexPath.row];
+    
     //how can self.manager be a nil?! it's a singleton
     [[LibraryManager sharedManager] requestDetailedBookWithID:book.ID];
     

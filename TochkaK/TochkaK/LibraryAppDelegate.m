@@ -32,27 +32,48 @@
 //    NSArray* controllers = [NSArray arrayWithObjects:titlesNavigationController, authorsNavigationController, pricesNavigationController, nil];
 //    self.tabBarController.viewControllers = controllers;
     
-    LibraryViewController* titlesVC = [[LibraryViewController alloc] init];
-    titlesVC.order = TITLE;
-    titlesVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Titles" image:nil tag:1];
-    titlesVC.navigationItem.title = @"Titles";
-    UINavigationController* titlesNavController = [[UINavigationController alloc] initWithRootViewController:titlesVC];
+//    LibraryViewController* titlesVC = [[LibraryViewController alloc] init];
+//    titlesVC.order = TITLE;
+//    titlesVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Titles" image:nil tag:1];
+//    titlesVC.navigationItem.title = @"Titles";
+//    UINavigationController* titlesNavController = [[UINavigationController alloc] initWithRootViewController:titlesVC];
+//    titlesNavController.title = @"Titles";
+    
+    UINavigationController *titlesNavController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
     titlesNavController.title = @"Titles";
+    LibraryViewController *titlesVC = (LibraryViewController *)titlesNavController.topViewController;
+    titlesVC.order = TITLE;
+    titlesVC.tabBarItem.title = @"Titles";
+    titlesVC.navigationItem.title = @"Titles";
+    
+    UINavigationController *authorTitlesNavController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
+    authorTitlesNavController.title = @"Authors";
+    LibraryViewController *authorsVC = (LibraryViewController *)authorTitlesNavController.topViewController;
+    authorsVC.order = AUTHOR_TITLE;
+    authorsVC.tabBarItem.title = @"Authors";
+    authorsVC.navigationItem.title = @"Authors";
+
+    UINavigationController *priceNavController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
+    priceNavController.title = @"Price";
+    LibraryViewController *priceVC = (LibraryViewController *)priceNavController.topViewController;
+    priceVC.order = PRICE;
+    priceVC.tabBarItem.title = @"Price";
+    priceVC.navigationItem.title = @"Price";
 
     
-    LibraryViewController* authorsVC = [[LibraryViewController alloc] init];
-    authorsVC.order = AUTHOR_TITLE;
-    authorsVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Authors" image:nil tag:2];
-    authorsVC.navigationItem.title = @"Authors";
-    UINavigationController* authorTitlesNavController = [[UINavigationController alloc] initWithRootViewController:authorsVC];
-    authorTitlesNavController.title = @"Authors";
+//    LibraryViewController* authorsVC = [[LibraryViewController alloc] init];
+//    authorsVC.order = AUTHOR_TITLE;
+//    authorsVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Authors" image:nil tag:2];
+//    authorsVC.navigationItem.title = @"Authors";
+//    UINavigationController* authorTitlesNavController = [[UINavigationController alloc] initWithRootViewController:authorsVC];
+//    authorTitlesNavController.title = @"Authors";
     
-    LibraryViewController* priceVC = [[LibraryViewController alloc] init];
-    priceVC.order = PRICE;
-    priceVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Price" image:nil tag:3];
-    priceVC.navigationItem.title = @"Price";
-    UINavigationController* priceNavController = [[UINavigationController alloc] initWithRootViewController:priceVC];
-    priceNavController.title = @"Price";
+//    LibraryViewController* priceVC = [[LibraryViewController alloc] init];
+//    priceVC.order = PRICE;
+//    priceVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Price" image:nil tag:3];
+//    priceVC.navigationItem.title = @"Price";
+//    UINavigationController* priceNavController = [[UINavigationController alloc] initWithRootViewController:priceVC];
+//    priceNavController.title = @"Price";
 
 //    NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
 //    
