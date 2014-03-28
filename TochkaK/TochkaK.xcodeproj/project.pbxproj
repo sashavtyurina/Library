@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DE4A818CB0BA40036559F /* LibraryManager.m */; };
 		261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C218CB5142007C13D3 /* LibraryBookCreator.m */; };
-		261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */; };
 		261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C818CB947D007C13D3 /* LibraryBook.m */; };
 		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
 		263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */; };
@@ -50,8 +49,6 @@
 		260DE4A818CB0BA40036559F /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryManager.m; sourceTree = "<group>"; };
 		261B28C118CB5142007C13D3 /* LibraryBookCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryBookCreator.h; sourceTree = "<group>"; };
 		261B28C218CB5142007C13D3 /* LibraryBookCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBookCreator.m; sourceTree = "<group>"; };
-		261B28C418CB7617007C13D3 /* LibraryServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryServerCommunicator.h; sourceTree = "<group>"; };
-		261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryServerCommunicator.m; sourceTree = "<group>"; };
 		261B28C718CB947D007C13D3 /* LibraryBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryBook.h; sourceTree = "<group>"; };
 		261B28C818CB947D007C13D3 /* LibraryBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBook.m; sourceTree = "<group>"; };
 		261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDetailedBookViewController.h; sourceTree = "<group>"; };
@@ -129,8 +126,6 @@
 			children = (
 				261B28C718CB947D007C13D3 /* LibraryBook.h */,
 				261B28C818CB947D007C13D3 /* LibraryBook.m */,
-				261B28C418CB7617007C13D3 /* LibraryServerCommunicator.h */,
-				261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */,
 				261B28C118CB5142007C13D3 /* LibraryBookCreator.h */,
 				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
 				260DE4A718CB0BA40036559F /* LibraryManager.h */,
@@ -328,7 +323,6 @@
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
 				2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */,
 				26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */,
-				261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
 				260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */,
 			);

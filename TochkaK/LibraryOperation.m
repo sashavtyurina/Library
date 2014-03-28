@@ -7,7 +7,6 @@
 //
 
 #import "LibraryOperation.h"
-#import "LibraryServerCommunicator.h"
 
 @interface LibraryOperation()
 

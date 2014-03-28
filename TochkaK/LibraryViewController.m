@@ -14,7 +14,6 @@
 @property (strong, nonatomic) LibraryManager *manager;
 
 @property (strong, nonatomic) UINavigationBar *navigationBar;
-//@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) LibraryDetailedBookViewController *currentDetailedVC;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
@@ -22,13 +21,6 @@
 @end
 
 @implementation LibraryViewController
-
-//- (UITableView *)tableView {
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
-//    }
-//    return _tableView;
-//}
 
 - (UINavigationBar *)navigationBar {
     if (!_navigationBar) {
@@ -117,7 +109,7 @@
                 break;
         }
     }];
-//    [self.tableView reloadData];
+    
     [self.tableViewOutlet reloadData];
 }
 
