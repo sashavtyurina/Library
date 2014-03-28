@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="140" translatesAutoresizingMaskIntoConstraints="NO" id="dmS-li-PsF" userLabel="View - Static View" customClass="LibraryDetailedView">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="140" translatesAutoresizingMaskIntoConstraints="NO" id="dmS-li-PsF" userLabel="View - Static View" customClass="LibraryCustomizedDetailedView">
                                 <rect key="frame" x="0.0" y="20" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -77,10 +77,18 @@
                                     <constraint firstItem="2GG-qW-Rx0" firstAttribute="top" secondItem="xZz-ej-YPH" secondAttribute="bottom" constant="5" id="cR2-dH-Thg"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LWR-Db-qjL" secondAttribute="bottom" constant="20" id="kLU-3r-WQl"/>
                                     <constraint firstItem="xZz-ej-YPH" firstAttribute="leading" secondItem="Etv-pg-BBM" secondAttribute="trailing" constant="18" id="uHi-OB-NvE"/>
-                                    <constraint firstAttribute="height" constant="140" id="yH0-Qj-RFS"/>
                                     <constraint firstItem="LWR-Db-qjL" firstAttribute="top" secondItem="2GG-qW-Rx0" secondAttribute="bottom" constant="5" id="zAO-9f-eih"/>
                                     <constraint firstItem="Etv-pg-BBM" firstAttribute="leading" secondItem="dmS-li-PsF" secondAttribute="leading" constant="20" id="zcd-g3-Ge9"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="authorLabelOutlet" destination="LWR-Db-qjL" id="WXf-VP-buW"/>
+                                    <outlet property="subtitleLabelOutlet" destination="2GG-qW-Rx0" id="Ve3-tW-Fnu"/>
+                                    <outlet property="titleLabelOutlet" destination="xZz-ej-YPH" id="QPQ-f8-cxk"/>
+                                    <outlet property="verticalSpaceAuthorToSubtitle" destination="zAO-9f-eih" id="ijx-cK-hFn"/>
+                                    <outlet property="verticalSpaceSubtitleToTitle" destination="cR2-dH-Thg" id="eZk-vY-xmb"/>
+                                    <outlet property="verticalSpaceTitleToTop" destination="Cg3-yB-Hy3" id="A6k-aM-ZrW"/>
+                                    <outlet property="verticalSpacebottomToAuthor" destination="kLU-3r-WQl" id="nkz-gM-cQE"/>
+                                </connections>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-z7-rTx">
                                 <rect key="frame" x="0.0" y="160" width="320" height="320"/>
@@ -116,19 +124,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="authorLabelOutlet" destination="LWR-Db-qjL" id="Ezm-Mb-Y8k"/>
-                        <outlet property="coverImageOutlet" destination="Etv-pg-BBM" id="CF0-UD-6P1"/>
-                        <outlet property="customViewHeightConstraint" destination="yH0-Qj-RFS" id="Sbv-LQ-qUQ"/>
+                        <outlet property="authorLabelOutlet" destination="LWR-Db-qjL" id="jVL-6T-ntW"/>
+                        <outlet property="coverImageOutlet" destination="Etv-pg-BBM" id="qM2-8l-AlT"/>
                         <outlet property="descriptionLabelOutlet" destination="hqu-aT-hEq" id="8aO-5T-2tz"/>
-                        <outlet property="detailedCustomView" destination="dmS-li-PsF" id="EZn-Wt-l56"/>
+                        <outlet property="detailedCustomView" destination="dmS-li-PsF" id="0cV-Mw-RwC"/>
                         <outlet property="freeLabelOutlet" destination="ff4-LX-aG8" id="NbL-c0-Oam"/>
                         <outlet property="scrollViewOutlet" destination="H7H-z7-rTx" id="i6G-VP-kea"/>
-                        <outlet property="subtitleLabelOutlet" destination="2GG-qW-Rx0" id="L68-Tn-jip"/>
-                        <outlet property="titleLabelOutlet" destination="xZz-ej-YPH" id="ahx-BZ-dWD"/>
-                        <outlet property="verticalSpaceAuthorToSubtitle" destination="zAO-9f-eih" id="cWf-C2-tXh"/>
-                        <outlet property="verticalSpaceSubtitleToTitle" destination="cR2-dH-Thg" id="eDq-PM-KnV"/>
-                        <outlet property="verticalSpaceTitleToTop" destination="Cg3-yB-Hy3" id="o5n-y0-yHD"/>
-                        <outlet property="verticalSpacebottomToAuthor" destination="kLU-3r-WQl" id="iUZ-P0-6oL"/>
+                        <outlet property="subtitleLabelOutlet" destination="2GG-qW-Rx0" id="na4-wh-tRR"/>
+                        <outlet property="titleLabelOutlet" destination="xZz-ej-YPH" id="t1v-mL-wfd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7h-1w-kHH" userLabel="First Responder" sceneMemberID="firstResponder"/>

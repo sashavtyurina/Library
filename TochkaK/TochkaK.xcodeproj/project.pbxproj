@@ -12,7 +12,7 @@
 		261B28C618CB7617007C13D3 /* LibraryServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C518CB7617007C13D3 /* LibraryServerCommunicator.m */; };
 		261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C818CB947D007C13D3 /* LibraryBook.m */; };
 		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
-		263A133218E46F6B005B39BB /* LibraryDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263A133118E46F6B005B39BB /* LibraryDetailedView.m */; };
+		263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */; };
 		26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FDE18E024A900C1C3A3 /* LibraryOperation.m */; };
 		26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */; };
 		2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */; };
@@ -56,8 +56,8 @@
 		261B28C818CB947D007C13D3 /* LibraryBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryBook.m; sourceTree = "<group>"; };
 		261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDetailedBookViewController.h; sourceTree = "<group>"; };
 		261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDetailedBookViewController.m; sourceTree = "<group>"; };
-		263A133018E46F6B005B39BB /* LibraryDetailedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDetailedView.h; sourceTree = "<group>"; };
-		263A133118E46F6B005B39BB /* LibraryDetailedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDetailedView.m; sourceTree = "<group>"; };
+		263D5B5218E58A0600CF2C1D /* LibraryCustomizedDetailedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCustomizedDetailedView.h; sourceTree = "<group>"; };
+		263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCustomizedDetailedView.m; sourceTree = "<group>"; };
 		26639FDD18E024A900C1C3A3 /* LibraryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryOperation.h; sourceTree = "<group>"; };
 		26639FDE18E024A900C1C3A3 /* LibraryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryOperation.m; sourceTree = "<group>"; };
 		26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrarySingleBookOperation.h; sourceTree = "<group>"; };
@@ -148,11 +148,11 @@
 		266AF10018CA5AA100A18C33 = {
 			isa = PBXGroup;
 			children = (
+				263D5B5218E58A0600CF2C1D /* LibraryCustomizedDetailedView.h */,
+				263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */,
 				2618D5F818D084B30015E638 /* Model */,
 				2618D5F718D084A90015E638 /* VCs */,
 				266AF14118CA5D5D00A18C33 /* main.storyboard */,
-				263A133018E46F6B005B39BB /* LibraryDetailedView.h */,
-				263A133118E46F6B005B39BB /* LibraryDetailedView.m */,
 				266AF11418CA5AA100A18C33 /* TochkaK */,
 				266AF13118CA5AA200A18C33 /* TochkaKTests */,
 				266AF10B18CA5AA100A18C33 /* Frameworks */,
@@ -320,9 +320,9 @@
 			files = (
 				261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */,
 				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
-				263A133218E46F6B005B39BB /* LibraryDetailedView.m in Sources */,
 				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
 				26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */,
+				263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */,
 				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,

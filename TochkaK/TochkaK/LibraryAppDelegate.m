@@ -18,26 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.tabBarController = [[UITabBarController alloc] init];
-//LibraryNavigationViewController
-    
-//    UINavigationController* titlesNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
-//    ((LibraryViewController*) [titlesNavigationController.viewControllers objectAtIndex:0]).order = TITLE;
-//    
-//    UINavigationController* authorsNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
-//    ((LibraryViewController*) [authorsNavigationController.viewControllers objectAtIndex:0]).order = AUTHOR_TITLE;
-//    
-//    UINavigationController* pricesNavigationController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
-//    ((LibraryViewController*) [pricesNavigationController.viewControllers objectAtIndex:0]).order = PRICE;
-//    
-//    NSArray* controllers = [NSArray arrayWithObjects:titlesNavigationController, authorsNavigationController, pricesNavigationController, nil];
-//    self.tabBarController.viewControllers = controllers;
-    
-//    LibraryViewController* titlesVC = [[LibraryViewController alloc] init];
-//    titlesVC.order = TITLE;
-//    titlesVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Titles" image:nil tag:1];
-//    titlesVC.navigationItem.title = @"Titles";
-//    UINavigationController* titlesNavController = [[UINavigationController alloc] initWithRootViewController:titlesVC];
-//    titlesNavController.title = @"Titles";
     
     UINavigationController *titlesNavController = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"LibraryNavigationViewController"];
     titlesNavController.title = @"Titles";
@@ -59,33 +39,13 @@
     priceVC.order = PRICE;
     priceVC.tabBarItem.title = @"Price";
     priceVC.navigationItem.title = @"Price";
-
     
-//    LibraryViewController* authorsVC = [[LibraryViewController alloc] init];
-//    authorsVC.order = AUTHOR_TITLE;
-//    authorsVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Authors" image:nil tag:2];
-//    authorsVC.navigationItem.title = @"Authors";
-//    UINavigationController* authorTitlesNavController = [[UINavigationController alloc] initWithRootViewController:authorsVC];
-//    authorTitlesNavController.title = @"Authors";
-    
-//    LibraryViewController* priceVC = [[LibraryViewController alloc] init];
-//    priceVC.order = PRICE;
-//    priceVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Price" image:nil tag:3];
-//    priceVC.navigationItem.title = @"Price";
-//    UINavigationController* priceNavController = [[UINavigationController alloc] initWithRootViewController:priceVC];
-//    priceNavController.title = @"Price";
-
-//    NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
-//    
     NSArray *controllers = @[titlesNavController, authorTitlesNavController, priceNavController];
     self.tabBarController.viewControllers = controllers;
-
-    
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-
     
     return YES;
 }

@@ -18,8 +18,9 @@
 
 
 @interface LibraryManager : NSObject
-#warning change return type of sharedManager from id to LibraryManager
-+ (id)sharedManager;
+
+//singleton
++ (instancetype)sharedManager;
 
 //A collection of books
 @property (strong, nonatomic) NSArray *books;

@@ -32,7 +32,7 @@
 
 @implementation LibraryManager
 
-+ (id)sharedManager {
++ (instancetype)sharedManager {
     static LibraryManager *sharedLibraryManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

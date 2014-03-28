@@ -18,22 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabelOutlet;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewOutlet;
-@property (weak, nonatomic) IBOutlet LibraryDetailedView *detailedCustomView;
-
-//constraints
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *customViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceTitleToTop;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceSubtitleToTitle;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceAuthorToSubtitle;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpacebottomToAuthor;
+@property (weak, nonatomic) IBOutlet LibraryCustomizedDetailedView *detailedCustomView;
 
 @end
 
 @implementation LibraryDetailedBookViewController
 
-- (CGFloat) getAdditionalVerticalSpace {
-    return self.verticalSpaceTitleToTop.constant + self.verticalSpaceSubtitleToTitle.constant + self.verticalSpaceAuthorToSubtitle.constant + self.verticalSpacebottomToAuthor.constant;
-}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,6 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.detailedCustomView_
+    
     [self updateUI];
 }
 
@@ -69,23 +63,12 @@
         self.coverImageOutlet.image = [UIImage imageWithData:self.bookToShow.image];
     }
     
-    [self resizeCustomDetailedView];
+    [self.detailedCustomView invalidateIntrinsicContentSize];
 }
 
-- (void)resizeCustomDetailedView {
-    CGFloat titleHeight = self.titleLabelOutlet.intrinsicContentSize.height;
-    CGFloat subtitleHeight = self.subtitleLabelOutlet.intrinsicContentSize.height;
-    CGFloat authorHeight = self.authorLabelOutlet.intrinsicContentSize.height;
-    CGFloat additionalVerticalSpace = [self getAdditionalVerticalSpace];
-
-    CGFloat newHeight = additionalVerticalSpace +  titleHeight + subtitleHeight + authorHeight;
-    
-    //if the new height is greater then the old one we update it
-    if (newHeight > self.customViewHeightConstraint.constant) {
-        self.customViewHeightConstraint.constant = newHeight;
-        NSLog(@"new height: %f", newHeight);
-    }
-}
+//- (void)resizeCustomDetailedView {
+//
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
