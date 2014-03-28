@@ -85,15 +85,14 @@
                                 <color key="backgroundColor" red="0.85885682399999996" green="0.85885682399999996" blue="0.85885682399999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="2Ik-8h-A3p"/>
-                                    <constraint firstAttribute="bottom" secondItem="Etv-pg-BBM" secondAttribute="bottom" constant="20" id="2tG-Gf-fM8"/>
                                     <constraint firstItem="Etv-pg-BBM" firstAttribute="top" secondItem="dmS-li-PsF" secondAttribute="top" constant="20" id="3l4-T3-mG1"/>
                                     <constraint firstItem="xZz-ej-YPH" firstAttribute="top" secondItem="dmS-li-PsF" secondAttribute="top" constant="30" id="Cg3-yB-Hy3"/>
                                     <constraint firstItem="2GG-qW-Rx0" firstAttribute="leading" secondItem="Etv-pg-BBM" secondAttribute="trailing" constant="18" id="PA1-fB-AnD"/>
                                     <constraint firstItem="LWR-Db-qjL" firstAttribute="leading" secondItem="Etv-pg-BBM" secondAttribute="trailing" constant="18" id="YsD-Z2-7SC"/>
                                     <constraint firstItem="2GG-qW-Rx0" firstAttribute="top" secondItem="xZz-ej-YPH" secondAttribute="bottom" constant="5" id="cR2-dH-Thg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="gDr-Bj-kOI"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LWR-Db-qjL" secondAttribute="bottom" constant="2" id="kLU-3r-WQl"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LWR-Db-qjL" secondAttribute="bottom" constant="20" id="kLU-3r-WQl"/>
                                     <constraint firstItem="xZz-ej-YPH" firstAttribute="leading" secondItem="Etv-pg-BBM" secondAttribute="trailing" constant="18" id="uHi-OB-NvE"/>
+                                    <constraint firstAttribute="height" constant="140" id="yH0-Qj-RFS"/>
                                     <constraint firstItem="LWR-Db-qjL" firstAttribute="top" secondItem="2GG-qW-Rx0" secondAttribute="bottom" constant="5" id="zAO-9f-eih"/>
                                     <constraint firstItem="Etv-pg-BBM" firstAttribute="leading" secondItem="dmS-li-PsF" secondAttribute="leading" constant="20" id="zcd-g3-Ge9"/>
                                 </constraints>
@@ -123,28 +122,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="H7H-z7-rTx" firstAttribute="top" secondItem="dmS-li-PsF" secondAttribute="bottom" id="8Ls-a0-y98"/>
                             <constraint firstItem="TeY-eS-bGO" firstAttribute="top" secondItem="H7H-z7-rTx" secondAttribute="bottom" id="HSF-yi-eSF"/>
                             <constraint firstItem="H7H-z7-rTx" firstAttribute="leading" secondItem="dmS-li-PsF" secondAttribute="leading" id="Lcy-WN-XPp"/>
-                            <constraint firstAttribute="width" secondItem="H7H-z7-rTx" secondAttribute="width" id="QUo-nb-3VZ"/>
                             <constraint firstItem="dmS-li-PsF" firstAttribute="top" secondItem="LYu-xo-mdG" secondAttribute="bottom" id="Uqa-C3-slF"/>
-                            <constraint firstItem="H7H-z7-rTx" firstAttribute="top" secondItem="dmS-li-PsF" secondAttribute="bottom" id="csv-dB-Tfv"/>
                             <constraint firstItem="dmS-li-PsF" firstAttribute="leading" secondItem="qDu-Px-FPt" secondAttribute="leading" id="hqO-0e-WHS"/>
+                            <constraint firstItem="H7H-z7-rTx" firstAttribute="width" secondItem="qDu-Px-FPt" secondAttribute="width" id="uJP-au-HaS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="authorLabelOutlet" destination="LWR-Db-qjL" id="Ezm-Mb-Y8k"/>
                         <outlet property="coverImageOutlet" destination="Etv-pg-BBM" id="CF0-UD-6P1"/>
+                        <outlet property="customViewHeightConstraint" destination="yH0-Qj-RFS" id="Sbv-LQ-qUQ"/>
                         <outlet property="descriptionLabelOutlet" destination="hqu-aT-hEq" id="8aO-5T-2tz"/>
                         <outlet property="detailedCustomView" destination="dmS-li-PsF" id="EZn-Wt-l56"/>
                         <outlet property="freeLabelOutlet" destination="ff4-LX-aG8" id="NbL-c0-Oam"/>
                         <outlet property="scrollViewOutlet" destination="H7H-z7-rTx" id="i6G-VP-kea"/>
                         <outlet property="subtitleLabelOutlet" destination="2GG-qW-Rx0" id="L68-Tn-jip"/>
                         <outlet property="titleLabelOutlet" destination="xZz-ej-YPH" id="ahx-BZ-dWD"/>
+                        <outlet property="verticalSpaceAuthorToSubtitle" destination="zAO-9f-eih" id="cWf-C2-tXh"/>
+                        <outlet property="verticalSpaceSubtitleToTitle" destination="cR2-dH-Thg" id="eDq-PM-KnV"/>
+                        <outlet property="verticalSpaceTitleToTop" destination="Cg3-yB-Hy3" id="o5n-y0-yHD"/>
+                        <outlet property="verticalSpacebottomToAuthor" destination="kLU-3r-WQl" id="iUZ-P0-6oL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7h-1w-kHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="-278"/>
+            <point key="canvasLocation" x="-310" y="-172"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="htD-lB-B5K">

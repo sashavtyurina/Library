@@ -10,7 +10,7 @@
 #import "LibraryBookCreator.h"
 @interface LibrarySingleBookOperation()
 
-@property (assign, nonatomic) int requestedBookID;
+@property (assign, nonatomic) NSInteger requestedBookID;
 
 - (NSURL *)constructURLForBookWithID:(NSInteger)ID ;
 

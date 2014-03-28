@@ -19,10 +19,14 @@
     return self;
 }
 
-- (CGSize)intrinsicContentSize {
-    NSLog(@"intrinsic size");
-    return CGSizeMake(200, 200);
-}
+//- (void)setNeedsLayout {
+//    NSLog(@"set needs layout");
+//}
+//
+//- (CGSize)intrinsicContentSize {
+//    NSLog(@"intrinsic size");
+//    return CGSizeMake(self.frame.size.width, self.frame.size.height + 1);
+//}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

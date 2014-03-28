@@ -54,7 +54,9 @@
     UINavigationController* priceNavController = [[UINavigationController alloc] initWithRootViewController:priceVC];
     priceNavController.title = @"Price";
 
-    NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
+//    NSArray* controllers = [NSArray arrayWithObjects:titlesNavController,authorTitlesNavController, priceNavController, nil];
+//    
+    NSArray *controllers = @[titlesNavController, authorTitlesNavController, priceNavController];
     self.tabBarController.viewControllers = controllers;
 
     
