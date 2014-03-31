@@ -155,7 +155,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="K9S-jz-VaT">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="K9S-jz-VaT" customClass="LibraryTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K9S-jz-VaT" id="SBd-za-s1s">
@@ -172,7 +172,7 @@
                                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjG-Sj-ANq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjG-Sj-ANq" userLabel="Image View - Cover">
                                                     <rect key="frame" x="5" y="5" width="60" height="69"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <constraints>
@@ -212,6 +212,12 @@
                                                 <constraint firstItem="pdr-sU-Tlx" firstAttribute="top" secondItem="SBd-za-s1s" secondAttribute="top" constant="5" id="ahC-8Q-6z5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="bWS-uF-1bh" id="iUb-RX-V7T"/>
+                                            <outlet property="coverImage" destination="tjG-Sj-ANq" id="5jX-eP-anE"/>
+                                            <outlet property="priceLabel" destination="pdr-sU-Tlx" id="HSs-id-IfO"/>
+                                            <outlet property="titleLabel" destination="Fdh-jx-hUl" id="z0y-Ft-uOO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

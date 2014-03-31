@@ -14,5 +14,7 @@ NSString * const BooksListRetrievedFromServer = @"BOOKS_LIST_RETRIEVED_FROM_SERV
 NSString * const BookDetailsIsReadyToBePresented = @"BOOK_DETAILS_IS_READY_TO_BE_PRESENTED";
 NSString * const BooksListIsReadyToBePresented = @"BOOKS_LIST_IS_READY_TO_BE_PRESENTED";
 
+NSString * const CachedImagesStorage = @"CACHED_COVER_IMAGES";
+
 NSString *const BookDetailsRetrieved = @"BOOK_DETAILS_RETRIEVED";
 

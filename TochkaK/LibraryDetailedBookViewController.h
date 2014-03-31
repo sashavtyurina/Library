@@ -14,5 +14,6 @@
 @interface LibraryDetailedBookViewController : UIViewController
 @property (strong, nonatomic) LibraryBook *bookToShow;
 - (void)updateUI;
+- (void)clearContents;
 
 @end

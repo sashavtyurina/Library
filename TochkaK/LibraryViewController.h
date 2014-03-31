@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "LibraryManager.h"
 #import "LibraryDetailedBookViewController.h"
+#import "LibraryTableViewCell.h"
+
+#include <CommonCrypto/CommonDigest.h>
+
 enum sortingOrder {
     TITLE = 1,
     AUTHOR_TITLE = 2,

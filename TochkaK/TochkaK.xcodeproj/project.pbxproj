@@ -12,6 +12,7 @@
 		261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28C818CB947D007C13D3 /* LibraryBook.m */; };
 		261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */; };
 		263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */; };
+		2661187618E9701C00222A14 /* LibraryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661187518E9701C00222A14 /* LibraryTableViewCell.m */; };
 		26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FDE18E024A900C1C3A3 /* LibraryOperation.m */; };
 		26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */; };
 		2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */; };
@@ -55,6 +56,9 @@
 		261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDetailedBookViewController.m; sourceTree = "<group>"; };
 		263D5B5218E58A0600CF2C1D /* LibraryCustomizedDetailedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCustomizedDetailedView.h; sourceTree = "<group>"; };
 		263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCustomizedDetailedView.m; sourceTree = "<group>"; };
+		2661187418E9701C00222A14 /* LibraryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTableViewCell.h; sourceTree = "<group>"; };
+		2661187518E9701C00222A14 /* LibraryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryTableViewCell.m; sourceTree = "<group>"; };
+		2661187718E9AD8300222A14 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		26639FDD18E024A900C1C3A3 /* LibraryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryOperation.h; sourceTree = "<group>"; };
 		26639FDE18E024A900C1C3A3 /* LibraryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryOperation.m; sourceTree = "<group>"; };
 		26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrarySingleBookOperation.h; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				2618D5F818D084B30015E638 /* Model */,
 				2618D5F718D084A90015E638 /* VCs */,
 				266AF14118CA5D5D00A18C33 /* main.storyboard */,
+				2661187418E9701C00222A14 /* LibraryTableViewCell.h */,
+				2661187518E9701C00222A14 /* LibraryTableViewCell.m */,
 				266AF11418CA5AA100A18C33 /* TochkaK */,
 				266AF13118CA5AA200A18C33 /* TochkaKTests */,
 				266AF10B18CA5AA100A18C33 /* Frameworks */,
@@ -167,6 +173,7 @@
 		266AF10B18CA5AA100A18C33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2661187718E9AD8300222A14 /* libcommonCrypto.dylib */,
 				266AF10C18CA5AA100A18C33 /* Foundation.framework */,
 				266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */,
 				266AF11018CA5AA100A18C33 /* UIKit.framework */,
@@ -318,6 +325,7 @@
 				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
 				26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */,
 				263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */,
+				2661187618E9701C00222A14 /* LibraryTableViewCell.m in Sources */,
 				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
@@ -445,6 +453,10 @@
 				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
 				INFOPLIST_FILE = "TochkaK/TochkaK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -459,6 +471,10 @@
 				GCC_PREFIX_HEADER = "TochkaK/TochkaK-Prefix.pch";
 				INFOPLIST_FILE = "TochkaK/TochkaK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

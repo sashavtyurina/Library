@@ -44,9 +44,21 @@
     self.tabBarController.viewControllers = controllers;
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
+    
+    //if the application is launched for the very first time
+    //create a new directory where the images will be stored
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        NSError *err = nil;
+        BOOL created = [fileManager createDirectoryAtPath:[documentsPath stringByAppendingString:CachedImagesStorage] withIntermediateDirectories:YES attributes:nil error:&err];
+        if (!created) {
+            NSLog(@"could not create a directory");
+        }
+    }
     return YES;
 }
 

@@ -16,4 +16,6 @@ extern NSString * const BooksListRetrievedFromServer;
 extern NSString * const BookDetailsIsReadyToBePresented;
 extern NSString * const BooksListIsReadyToBePresented;
 
+extern NSString * const CachedImagesStorage;
+
 extern NSString * const BookDetailsRetrieved;

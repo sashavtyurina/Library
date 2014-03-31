@@ -118,23 +118,76 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+//    LibraryTableViewCell *cell = [[LibraryTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    LibraryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    NSString *title =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
-    
+    LibraryBook *bookPresenting = [self.books objectAtIndex:[indexPath row]];
+    NSString *title =  bookPresenting.title; //[[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
     if ([title isEqual:[NSNull null]]) { title = @"Unknown name"; }
     
-    cell.textLabel.text = title;
+//    cell.textLabel.text = title;
     
-    NSString *authorTitle =  [[self.books objectAtIndex:[indexPath row]] valueForKey:@"authorTitle"];
+    NSString *authorTitle =  bookPresenting.authorTitle; //[[self.books objectAtIndex:[indexPath row]] valueForKey:@"authorTitle"];
     if ([authorTitle isEqualToString:@""]) { authorTitle = @"Unknown author"; }
     
-    BOOL free = [[[self.books objectAtIndex:[indexPath row]] valueForKey:@"free"] boolValue];
-    NSString *price = free ? @"бесплатная" : @"платная";
+    BOOL free = bookPresenting.free; //[[[self.books objectAtIndex:[indexPath row]] valueForKey:@"free"] boolValue];
+    NSString *price = free ? @"free" : @"$$$";
     
-    cell.detailTextLabel.text =  [NSString stringWithFormat:@"%@, %@", authorTitle, price];
-    cell.selected = NO;
+    
+    cell.titleLabel.text = title;
+    cell.authorLabel.text = authorTitle;
+    cell.priceLabel.text = price;
+    
+    //use dispatch concurrent queues here to load and show pictures concurrently
+    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(aQueue, ^{
+
+        //0. create a separate directory where all the pictures will be saved - done. In AppDelegate didFinishLoadingWithOptions
+        //0.1. create a unique name for a file to save (sha / md5) - ok. SHA-1 it is.
+        //1. check if the needed file exists - ok
+        //2. if exists - load it from the disk - ok?
+        //3. if doesn't exist - load it from the server - ok
+        //4. save it to the disk
+        //5. create a separate NSOperation for this stuff
+        
+        unsigned char hashedFileName[CC_SHA1_DIGEST_LENGTH];
+        NSData *nameToBeHashed = [bookPresenting.url dataUsingEncoding:NSUTF8StringEncoding];
+        CC_SHA1([nameToBeHashed bytes], [nameToBeHashed length], hashedFileName);
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        NSString *filePath = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%s.jpg", hashedFileName]];
+        BOOL fileExists = [fileManager fileExistsAtPath:filePath];
+        NSLog(@"Does file exist? -%hhd", fileExists);
+        NSData *coverImageData = nil;
+        if (fileExists) {
+            coverImageData = [NSData dataWithContentsOfFile:filePath];
+            NSLog(@"file exists, load it from the disk");
+        }
+        else {
+            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookPresenting.url]];
+            NSURLResponse *response = nil;
+            NSError *err = nil;
+            coverImageData = [NSURLConnection sendSynchronousRequest:request
+                                                   returningResponse:&response
+                                                               error:&err];
+            NSLog(@"file doesn't exist. Load it from the server");
+            
+            //save file to disk
+            BOOL fileCreated = [fileManager createFileAtPath:filePath contents:coverImageData attributes:nil];
+            NSLog(@"Was file created? %hhd", fileCreated);
+        }
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.coverImage.image = [UIImage imageWithData:coverImageData];
+            
+           
+            
+        });
+    });
+    
     return cell;
 }
 
