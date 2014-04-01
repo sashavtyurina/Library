@@ -16,8 +16,7 @@ extern NSString * const BooksListRetrievedFromServer;
 extern NSString * const BookDetailsIsReadyToBePresented;
 extern NSString * const BooksListIsReadyToBePresented;
 
+//Application's caches folder name
 extern NSString * const CachedImagesStorage;
-
-extern NSString * const ImageViewOperationAssociation;
 
 extern NSString * const BookDetailsRetrieved;

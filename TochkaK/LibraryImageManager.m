@@ -7,6 +7,8 @@
 //
 
 #import "LibraryImageManager.h"
+static const void *LibraryImageViewOperationAssociationKey = &LibraryImageViewOperationAssociationKey;
+
 @interface LibraryImageManager ()
 
 @property (strong, nonatomic) NSMutableDictionary *coverImagesAndOperations;
@@ -32,13 +34,12 @@
 }
 
 - (void)startProcessingImageView:(UIImageView *)imageView withURL:(NSString *)imageURL {
-    const char associationKey [] = "association_key";
     
-    LibraryDownloadImageOperation *oldOperation = objc_getAssociatedObject(imageView, associationKey);
+    LibraryDownloadImageOperation *oldOperation = objc_getAssociatedObject(imageView, LibraryImageViewOperationAssociationKey);
     [oldOperation cancel];
     
     LibraryDownloadImageOperation *newOperation = [[LibraryDownloadImageOperation alloc] initWithImageURL:imageURL imageView:imageView];
-    objc_setAssociatedObject(imageView, associationKey, newOperation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(imageView, LibraryImageViewOperationAssociationKey, newOperation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:newOperation];

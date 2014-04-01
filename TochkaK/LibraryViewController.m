@@ -51,7 +51,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"did load");
 //    [self.view addSubview:self.tableView];
 //    
     [self.manager requestBooksList];
@@ -148,74 +147,9 @@
     dispatch_async(aQueue, ^{
 
         [[LibraryImageManager sharedManager] startProcessingImageView:cell.coverImage withURL:bookPresenting.url];
-        
-        // 0. Add cell.coverImageView with imageURL to ImageManager, let it do its job
-//        [[LibraryImageManager sharedManager] addImageView:cell.coverImage withURL:[NSURL URLWithString:bookPresenting.url]];
-        
-        
-        //0. create a separate directory where all the pictures will be saved - done. In AppDelegate didFinishLoadingWithOptions
-        //0.1. create a unique name for a file to save (sha / md5) - ok. SHA-1 it is.
-        //1. check if the needed file exists - ok
-        //2. if exists - load it from the disk - ok?
-        //3. if doesn't exist - load it from the server - ok
-        //4. save it to the disk
-        //5. create a separate NSOperation for this stuff
-        
-//        NSString *hashedFileName = [bookPresenting.url MD5String];
-//
-//        NSFileManager *fileManager = [NSFileManager defaultManager];
-//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-//        NSString *filePath = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", hashedFileName]];
-////        NSLog(@"Hashed name: %@; Title: %@", filePath, bookPresenting.title);
-//        
-//        BOOL fileExists = [fileManager fileExistsAtPath:filePath];
-//        
-//        NSLog(@"Does file exist? -%hhd", fileExists);
-//        NSData *coverImageData = nil;
-//        
-//        if (fileExists) {
-//            coverImageData = [NSData dataWithContentsOfFile:filePath];
-//            NSLog(@"file exists, load it from the disk");
-//        } else {
-        
-//            //save file to disk
-//            BOOL fileCreated = [fileManager createFileAtPath:filePath contents:coverImageData attributes:nil];
-//
-//            if (!fileCreated) {
-//                NSLog(@"Could not create a file");
-//            }
-//        }
-        
-        
-//        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookPresenting.url]];
-//        NSURLResponse *response = nil;
-//        NSError *err = nil;
-//        NSData *coverImageData = [NSURLConnection sendSynchronousRequest:request
-//                                                       returningResponse:&response
-//                                                                   error:&err];
-//                              
-//        UIImage *img = [UIImage imageWithData:coverImageData];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.coverImage.image = img;
-//        });
     });
     
     return cell;
-}
-
-- (void)enumerateFilesInDirectory {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *bundleURL = [[NSBundle mainBundle] bundleURL];
-    NSArray *contents = [fileManager contentsOfDirectoryAtURL:bundleURL
-                                   includingPropertiesForKeys:@[]
-                                                      options:NSDirectoryEnumerationSkipsHiddenFiles
-                                                        error:nil];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pathExtension == 'jpg'"];
-    for (NSURL *fileURL in [contents filteredArrayUsingPredicate:predicate]) {
-        // Enumerate each .png file in directory
-        NSLog(@"%@", fileURL);
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -224,6 +158,8 @@
     //how can self.manager be a nil?! it's a singleton
     [[LibraryManager sharedManager] requestDetailedBookWithID:book.ID];
     
+    //clear detailed view controller before pushing it
+    [self.currentDetailedVC clearContents];
     [self.navigationController pushViewController:self.currentDetailedVC animated:YES];
 }
 

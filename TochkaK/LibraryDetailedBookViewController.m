@@ -33,23 +33,19 @@
     return self;
 }
 
+#warning bug1
+//viewDidLoad is called after updateUI
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateUI];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    //if we can't find ourselves, that means we've been pushed out of the stack
-    //nope
-    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
-        [self clearContents];
-    }
     [super viewDidDisappear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
 }
 
 - (void)clearContents {
@@ -63,24 +59,30 @@
 }
 
 - (void)updateUI {
+    NSLog(@"DetailedViewController updated");
     self.titleLabelOutlet.text = self.bookToShow.title;
     self.subtitleLabelOutlet.text = self.bookToShow.subTitle;
     self.authorLabelOutlet.text = self.bookToShow.authorTitle;
     self.descriptionLabelOutlet.text = self.bookToShow.description;
     self.freeLabelOutlet.text = self.bookToShow.free ? @"free" : @"$$$";
-    if (self.bookToShow.image == nil) {
-        self.coverImageOutlet.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-    } else {
-        self.coverImageOutlet.image = [UIImage imageWithData:self.bookToShow.image];
-    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *coverImage = nil;
+        if (self.bookToShow.image == nil) {
+            coverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
+        } else {
+            coverImage = [UIImage imageWithData:self.bookToShow.image];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.coverImageOutlet.image = coverImage;
+        });
+    });
+    
  
     //let that gray view on the top resize itself
     [self.detailedCustomView invalidateIntrinsicContentSize];
     
-}
-
-- (void)testFunction {
-    NSLog(@"test function called from a block");
 }
 
 - (void)didReceiveMemoryWarning {

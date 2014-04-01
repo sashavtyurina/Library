@@ -62,10 +62,10 @@
     //check if the image is already downloaded
     if ([self imageExistsLocally]) {
         imageData = [self loadImageFromDisk];
-        NSLog(@"Image loaded from disk");
+//        NSLog(@"Image loaded from disk");
     } else {
     //if not download it from the server
-        NSLog(@"Image loaded from server");
+        //NSLog(@"Image loaded from server");
         imageData = [self loadImageFromServer];
         [self saveImageToDisk:imageData];
     }
