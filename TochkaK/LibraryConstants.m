@@ -16,5 +16,7 @@ NSString * const BooksListIsReadyToBePresented = @"BOOKS_LIST_IS_READY_TO_BE_PRE
 
 NSString * const CachedImagesStorage = @"CACHED_COVER_IMAGES";
 
+NSString * const ImageViewOperationAssociation = @"IMAGE_VIEW_OPERATION_ASSOCIATION_KEY";
+
 NSString *const BookDetailsRetrieved = @"BOOK_DETAILS_RETRIEVED";
 

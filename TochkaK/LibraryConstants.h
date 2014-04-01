@@ -18,4 +18,6 @@ extern NSString * const BooksListIsReadyToBePresented;
 
 extern NSString * const CachedImagesStorage;
 
+extern NSString * const ImageViewOperationAssociation;
+
 extern NSString * const BookDetailsRetrieved;

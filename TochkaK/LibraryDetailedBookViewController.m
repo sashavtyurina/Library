@@ -39,6 +39,8 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    //if we can't find ourselves, that means we've been pushed out of the stack
+    //nope
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
         [self clearContents];
     }

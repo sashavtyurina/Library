@@ -121,6 +121,10 @@
 //    LibraryTableViewCell *cell = [[LibraryTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     LibraryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.coverImage.image = nil;
+    cell.titleLabel.text = @"";
+    cell.authorLabel.text = @"";
+    cell.priceLabel.text = @"";
     
     LibraryBook *bookPresenting = [self.books objectAtIndex:[indexPath row]];
     NSString *title =  bookPresenting.title; //[[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
@@ -143,6 +147,12 @@
     dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(aQueue, ^{
 
+        [[LibraryImageManager sharedManager] startProcessingImageView:cell.coverImage withURL:bookPresenting.url];
+        
+        // 0. Add cell.coverImageView with imageURL to ImageManager, let it do its job
+//        [[LibraryImageManager sharedManager] addImageView:cell.coverImage withURL:[NSURL URLWithString:bookPresenting.url]];
+        
+        
         //0. create a separate directory where all the pictures will be saved - done. In AppDelegate didFinishLoadingWithOptions
         //0.1. create a unique name for a file to save (sha / md5) - ok. SHA-1 it is.
         //1. check if the needed file exists - ok
@@ -151,44 +161,61 @@
         //4. save it to the disk
         //5. create a separate NSOperation for this stuff
         
-        unsigned char hashedFileName[CC_SHA1_DIGEST_LENGTH];
-        NSData *nameToBeHashed = [bookPresenting.url dataUsingEncoding:NSUTF8StringEncoding];
-        CC_SHA1([nameToBeHashed bytes], [nameToBeHashed length], hashedFileName);
+//        NSString *hashedFileName = [bookPresenting.url MD5String];
+//
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+//        NSString *filePath = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", hashedFileName]];
+////        NSLog(@"Hashed name: %@; Title: %@", filePath, bookPresenting.title);
+//        
+//        BOOL fileExists = [fileManager fileExistsAtPath:filePath];
+//        
+//        NSLog(@"Does file exist? -%hhd", fileExists);
+//        NSData *coverImageData = nil;
+//        
+//        if (fileExists) {
+//            coverImageData = [NSData dataWithContentsOfFile:filePath];
+//            NSLog(@"file exists, load it from the disk");
+//        } else {
         
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-        NSString *filePath = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%s.jpg", hashedFileName]];
-        BOOL fileExists = [fileManager fileExistsAtPath:filePath];
-        NSLog(@"Does file exist? -%hhd", fileExists);
-        NSData *coverImageData = nil;
-        if (fileExists) {
-            coverImageData = [NSData dataWithContentsOfFile:filePath];
-            NSLog(@"file exists, load it from the disk");
-        }
-        else {
-            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookPresenting.url]];
-            NSURLResponse *response = nil;
-            NSError *err = nil;
-            coverImageData = [NSURLConnection sendSynchronousRequest:request
-                                                   returningResponse:&response
-                                                               error:&err];
-            NSLog(@"file doesn't exist. Load it from the server");
-            
-            //save file to disk
-            BOOL fileCreated = [fileManager createFileAtPath:filePath contents:coverImageData attributes:nil];
-            NSLog(@"Was file created? %hhd", fileCreated);
-        }
+//            //save file to disk
+//            BOOL fileCreated = [fileManager createFileAtPath:filePath contents:coverImageData attributes:nil];
+//
+//            if (!fileCreated) {
+//                NSLog(@"Could not create a file");
+//            }
+//        }
         
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.coverImage.image = [UIImage imageWithData:coverImageData];
-            
-           
-            
-        });
+//        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookPresenting.url]];
+//        NSURLResponse *response = nil;
+//        NSError *err = nil;
+//        NSData *coverImageData = [NSURLConnection sendSynchronousRequest:request
+//                                                       returningResponse:&response
+//                                                                   error:&err];
+//                              
+//        UIImage *img = [UIImage imageWithData:coverImageData];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            cell.coverImage.image = img;
+//        });
     });
     
     return cell;
+}
+
+- (void)enumerateFilesInDirectory {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *bundleURL = [[NSBundle mainBundle] bundleURL];
+    NSArray *contents = [fileManager contentsOfDirectoryAtURL:bundleURL
+                                   includingPropertiesForKeys:@[]
+                                                      options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                        error:nil];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pathExtension == 'jpg'"];
+    for (NSURL *fileURL in [contents filteredArrayUsingPredicate:predicate]) {
+        // Enumerate each .png file in directory
+        NSLog(@"%@", fileURL);
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

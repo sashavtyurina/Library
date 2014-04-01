@@ -33,6 +33,9 @@
 		266AF13818CA5AA200A18C33 /* TochkaKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF13718CA5AA200A18C33 /* TochkaKTests.m */; };
 		266AF14218CA5D5D00A18C33 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266AF14118CA5D5D00A18C33 /* main.storyboard */; };
 		266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF14718CA650800A18C33 /* LibraryViewController.m */; };
+		2697EE6918EAA7AF00FAB7DF /* NSString+MD5Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */; };
+		2697EE6C18EAAA0A00FAB7DF /* LibraryImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */; };
+		2697EE7118EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE7018EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +66,8 @@
 		26639FDE18E024A900C1C3A3 /* LibraryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryOperation.m; sourceTree = "<group>"; };
 		26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrarySingleBookOperation.h; sourceTree = "<group>"; };
 		26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibrarySingleBookOperation.m; sourceTree = "<group>"; };
-		2663A02918E1C78300C1C3A3 /* LibraryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryConstants.h; sourceTree = "<group>"; };
-		2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryConstants.m; sourceTree = "<group>"; };
+		2663A02918E1C78300C1C3A3 /* LibraryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryConstants.h; path = ../LibraryConstants.h; sourceTree = "<group>"; };
+		2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryConstants.m; path = ../LibraryConstants.m; sourceTree = "<group>"; };
 		266AF10918CA5AA100A18C33 /* TochkaK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TochkaK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266AF10C18CA5AA100A18C33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		266AF10E18CA5AA100A18C33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,6 +89,12 @@
 		266AF14118CA5D5D00A18C33 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 		266AF14618CA650800A18C33 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
 		266AF14718CA650800A18C33 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		2697EE6718EAA7AF00FAB7DF /* NSString+MD5Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Hash.h"; path = "../NSString+MD5Hash.h"; sourceTree = "<group>"; };
+		2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Hash.m"; path = "../NSString+MD5Hash.m"; sourceTree = "<group>"; };
+		2697EE6A18EAAA0A00FAB7DF /* LibraryImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryImageManager.h; sourceTree = "<group>"; };
+		2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryImageManager.m; sourceTree = "<group>"; };
+		2697EE6F18EAAD9A00FAB7DF /* LibraryDownloadImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDownloadImageOperation.h; sourceTree = "<group>"; };
+		2697EE7018EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDownloadImageOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +126,10 @@
 		2618D5F718D084A90015E638 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				2661187418E9701C00222A14 /* LibraryTableViewCell.h */,
+				2661187518E9701C00222A14 /* LibraryTableViewCell.m */,
+				263D5B5218E58A0600CF2C1D /* LibraryCustomizedDetailedView.h */,
+				263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */,
 				261B28CD18CC5394007C13D3 /* LibraryDetailedBookViewController.h */,
 				261B28CE18CC5394007C13D3 /* LibraryDetailedBookViewController.m */,
 				266AF14618CA650800A18C33 /* LibraryViewController.h */,
@@ -128,18 +141,15 @@
 		2618D5F818D084B30015E638 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2697EE6E18EAACB500FAB7DF /* Operations */,
 				261B28C718CB947D007C13D3 /* LibraryBook.h */,
 				261B28C818CB947D007C13D3 /* LibraryBook.m */,
 				261B28C118CB5142007C13D3 /* LibraryBookCreator.h */,
 				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
 				260DE4A718CB0BA40036559F /* LibraryManager.h */,
 				260DE4A818CB0BA40036559F /* LibraryManager.m */,
-				26639FDD18E024A900C1C3A3 /* LibraryOperation.h */,
-				26639FDE18E024A900C1C3A3 /* LibraryOperation.m */,
-				26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */,
-				26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */,
-				2663A02918E1C78300C1C3A3 /* LibraryConstants.h */,
-				2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */,
+				2697EE6A18EAAA0A00FAB7DF /* LibraryImageManager.h */,
+				2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -147,13 +157,10 @@
 		266AF10018CA5AA100A18C33 = {
 			isa = PBXGroup;
 			children = (
-				263D5B5218E58A0600CF2C1D /* LibraryCustomizedDetailedView.h */,
-				263D5B5318E58A0600CF2C1D /* LibraryCustomizedDetailedView.m */,
+				2697EE6D18EAAC8B00FAB7DF /* Utilities */,
 				2618D5F818D084B30015E638 /* Model */,
 				2618D5F718D084A90015E638 /* VCs */,
 				266AF14118CA5D5D00A18C33 /* main.storyboard */,
-				2661187418E9701C00222A14 /* LibraryTableViewCell.h */,
-				2661187518E9701C00222A14 /* LibraryTableViewCell.m */,
 				266AF11418CA5AA100A18C33 /* TochkaK */,
 				266AF13118CA5AA200A18C33 /* TochkaKTests */,
 				266AF10B18CA5AA100A18C33 /* Frameworks */,
@@ -222,6 +229,31 @@
 				266AF13418CA5AA200A18C33 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2697EE6D18EAAC8B00FAB7DF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2697EE6718EAA7AF00FAB7DF /* NSString+MD5Hash.h */,
+				2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */,
+				2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */,
+				2663A02918E1C78300C1C3A3 /* LibraryConstants.h */,
+			);
+			name = Utilities;
+			path = TochkaK;
+			sourceTree = "<group>";
+		};
+		2697EE6E18EAACB500FAB7DF /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				26639FDD18E024A900C1C3A3 /* LibraryOperation.h */,
+				26639FDE18E024A900C1C3A3 /* LibraryOperation.m */,
+				26639FE018E0428300C1C3A3 /* LibrarySingleBookOperation.h */,
+				26639FE118E0428300C1C3A3 /* LibrarySingleBookOperation.m */,
+				2697EE6F18EAAD9A00FAB7DF /* LibraryDownloadImageOperation.h */,
+				2697EE7018EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +354,8 @@
 			files = (
 				261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */,
 				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
+				2697EE6918EAA7AF00FAB7DF /* NSString+MD5Hash.m in Sources */,
+				2697EE6C18EAAA0A00FAB7DF /* LibraryImageManager.m in Sources */,
 				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
 				26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */,
 				263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */,
@@ -329,6 +363,7 @@
 				261B28C318CB5142007C13D3 /* LibraryBookCreator.m in Sources */,
 				266AF11F18CA5AA100A18C33 /* LibraryAppDelegate.m in Sources */,
 				266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */,
+				2697EE7118EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m in Sources */,
 				2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */,
 				26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,

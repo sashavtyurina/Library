@@ -12,6 +12,9 @@
 #import "LibraryTableViewCell.h"
 
 #include <CommonCrypto/CommonDigest.h>
+#import "NSString+MD5Hash.h"
+#import "LibraryDownloadImageOperation.h"
+#import "LibraryImageManager.h"
 
 enum sortingOrder {
     TITLE = 1,
