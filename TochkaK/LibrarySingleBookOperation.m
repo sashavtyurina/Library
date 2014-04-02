@@ -52,7 +52,6 @@
     NSData *requestResult = [NSURLConnection sendSynchronousRequest:request
                                                   returningResponse:&response
                                                               error:&err];
-    //if (![requestResult isEqual:nil]) {
     if (requestResult) {
         //parse the book        
         NSError *err = nil;

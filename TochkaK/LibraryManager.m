@@ -98,9 +98,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsIsReadyToBePresented object:nil];
 }
 
-
-
-
 - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook {
     [[LibraryManager sharedManager] setRequestedBook:requestedLibraryBook];
     [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsRetrieved object:nil];

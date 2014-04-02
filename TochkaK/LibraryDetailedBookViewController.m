@@ -24,8 +24,6 @@
 
 @implementation LibraryDetailedBookViewController
 
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -39,13 +37,6 @@
     [super viewDidLoad];
     [self updateUI];
 }
-
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewDidDisappear:animated];
-//    if ([self isMovingFromParentViewController]) {
-//        [self clearContents];
-//    }
-//}
 
 - (void)didMoveToParentViewController:(UIViewController *)parent {
     if (!parent) {
@@ -75,7 +66,7 @@
     self.descriptionLabelOutlet.text = self.bookToShow.description;
     self.freeLabelOutlet.text = self.bookToShow.free ? @"free" : @"$$$";
     
-    [self.coverImageOutlet startLoadingImageFromURL:self.bookToShow.url];
+    [self.coverImageOutlet setImageWithURL:self.bookToShow.url];
  
     //let that gray view on the top resize itself
     [self.detailedCustomView invalidateIntrinsicContentSize];

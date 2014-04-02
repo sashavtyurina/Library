@@ -10,6 +10,9 @@
 #import "LibraryManager.h"
 #import "LibraryConstants.h"
 @interface LibrarySingleBookOperation : NSOperation
+
 @property (strong, nonatomic) LibraryBook* requestedBook;
+
 - (id)initWithBookID:(int)requestedBookID;
+
 @end

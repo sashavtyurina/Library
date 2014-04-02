@@ -14,5 +14,7 @@
 #import <Foundation/Foundation.h>
 
 @interface UIImageView (Cache)
-- (void)startLoadingImageFromURL:(NSString *)imageURL;
+
+- (void)setImageWithURL:(NSString *)imageURL;
+
 @end

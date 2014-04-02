@@ -10,10 +10,7 @@
 @interface LibraryDownloadImageOperation ()
 
 @property (strong, nonatomic) NSString *imageURL;
-@property (strong, nonatomic) UIImageView *imageView;
-
 @property (strong, nonatomic) NSString *filePath;
-
 @property (nonatomic, copy) AssignResultPictureBlock assignResultPicture;
 
 @end
@@ -49,12 +46,15 @@
 }
 
 - (BOOL)imageExistsLocally {
-    NSString *hashedFileName = [self.imageURL  MD5String];
+    NSString *hashedFileName = [self getFileNameWithURL:self.imageURL];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     self.filePath = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", hashedFileName]];
-    ////        NSLog(@"Hashed name: %@; Title: %@", filePath, bookPresenting.title);
     return [fileManager fileExistsAtPath:self.filePath];
+}
+
+- (NSString *)getFileNameWithURL:(NSString *)imageURL {
+    return [imageURL  MD5String];
 }
 
 - (NSData *)loadImageFromDisk {
@@ -76,13 +76,8 @@
     return fileCreated;
 }
 
-
-
 - (void)cancel {
-    //what do we do on cancel?
-//    NSLog(@"cancelled"); 
     [super cancel];
-    self.imageView.image = nil;
     self.imageURL = nil;
 }
 @end

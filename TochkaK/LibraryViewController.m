@@ -35,8 +35,7 @@
 
 - (LibraryDetailedBookViewController *)currentDetailedVC {
     if (!_currentDetailedVC) {
-        //_currentDetailedVC = [[LibraryDetailedBookViewController alloc] init];
-        _currentDetailedVC = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailedBookViewController"];//@"TestViewController"];
+        _currentDetailedVC = [[UIStoryboard storyboardWithName:@"main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailedBookViewController"];
     }
     return _currentDetailedVC;
 }
@@ -51,10 +50,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.view addSubview:self.tableView];
-//    
     [self.manager requestBooksList];
-//
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadUI)
                                                  name:@"BOOKS_RETRIEVED"
@@ -140,7 +137,7 @@
     cell.authorLabel.text = authorTitle;
     cell.priceLabel.text = price;
     
-    [cell.coverImage startLoadingImageFromURL:bookPresenting.url];
+    [cell.coverImage setImageWithURL:bookPresenting.url];
     return cell;
 }
 

@@ -10,12 +10,6 @@
 #import "LibraryBookCreator.h"
 #import "LibraryAppDelegate.h"
 #import "LibraryConstants.h"
-//@protocol SingleBookOperationDelegate <NSObject>
-//
-//@required - (LibraryBook *)saveRequestedLibraryBook:(LibraryBook *)requestedLibraryBook;
-//
-//@end
-
 
 @interface LibraryManager : NSObject
 
