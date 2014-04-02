@@ -52,7 +52,8 @@
     NSData *requestResult = [NSURLConnection sendSynchronousRequest:request
                                                   returningResponse:&response
                                                               error:&err];
-    if (![requestResult isEqual:nil]) {
+    //if (![requestResult isEqual:nil]) {
+    if (requestResult) {
         //parse the book        
         NSError *err = nil;
         self.requestedBook = [LibraryBookCreator singleBookFromJSON:requestResult error:&err];
@@ -73,10 +74,11 @@
             
         }
         
-        //notify manager that the book is ready
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsRetrievedFromServer object:nil];
-        });
     }
+    //notify manager that the book is ready
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:BookDetailsRetrievedFromServer object:nil];
+    });
+
 }
 @end

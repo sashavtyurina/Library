@@ -40,12 +40,17 @@
     [self updateUI];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if ([self isMovingFromParentViewController]) {
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    if ([self isMovingFromParentViewController]) {
+//        [self clearContents];
+//    }
+//}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+    if (!parent) {
         [self clearContents];
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

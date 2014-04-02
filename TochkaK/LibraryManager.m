@@ -66,7 +66,6 @@
 }
 
 //Manage Detailed Description of Single Book
-
 - (void)requestDetailedBookWithID:(NSInteger)requestedBookID {
     [[LibraryManager sharedManager] setRequstedBookID:requestedBookID];
     NSArray *requestedBook = [self fetchBookWithIDFromDB:requestedBookID];
