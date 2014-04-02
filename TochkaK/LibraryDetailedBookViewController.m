@@ -42,6 +42,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    if ([self isMovingFromParentViewController]) {
+        [self clearContents];
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,19 +70,7 @@
     self.descriptionLabelOutlet.text = self.bookToShow.description;
     self.freeLabelOutlet.text = self.bookToShow.free ? @"free" : @"$$$";
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *coverImage = nil;
-        if (self.bookToShow.image == nil) {
-            coverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bookToShow.url]]];
-        } else {
-            coverImage = [UIImage imageWithData:self.bookToShow.image];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.coverImageOutlet.image = coverImage;
-        });
-    });
-    
+    [self.coverImageOutlet startLoadingImageFromURL:self.bookToShow.url];
  
     //let that gray view on the top resize itself
     [self.detailedCustomView invalidateIntrinsicContentSize];

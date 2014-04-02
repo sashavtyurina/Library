@@ -34,8 +34,8 @@
 		266AF14218CA5D5D00A18C33 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266AF14118CA5D5D00A18C33 /* main.storyboard */; };
 		266AF14818CA650800A18C33 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266AF14718CA650800A18C33 /* LibraryViewController.m */; };
 		2697EE6918EAA7AF00FAB7DF /* NSString+MD5Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */; };
-		2697EE6C18EAAA0A00FAB7DF /* LibraryImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */; };
 		2697EE7118EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2697EE7018EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m */; };
+		26A0092518EBEAE1002E2DBC /* UIImageView+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A0092418EBEAE1002E2DBC /* UIImageView+Cache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +91,10 @@
 		266AF14718CA650800A18C33 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
 		2697EE6718EAA7AF00FAB7DF /* NSString+MD5Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Hash.h"; path = "../NSString+MD5Hash.h"; sourceTree = "<group>"; };
 		2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Hash.m"; path = "../NSString+MD5Hash.m"; sourceTree = "<group>"; };
-		2697EE6A18EAAA0A00FAB7DF /* LibraryImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryImageManager.h; sourceTree = "<group>"; };
-		2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryImageManager.m; sourceTree = "<group>"; };
 		2697EE6F18EAAD9A00FAB7DF /* LibraryDownloadImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryDownloadImageOperation.h; sourceTree = "<group>"; };
 		2697EE7018EAAD9A00FAB7DF /* LibraryDownloadImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryDownloadImageOperation.m; sourceTree = "<group>"; };
+		26A0092318EBEAE1002E2DBC /* UIImageView+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Cache.h"; path = "../UIImageView+Cache.h"; sourceTree = "<group>"; };
+		26A0092418EBEAE1002E2DBC /* UIImageView+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Cache.m"; path = "../UIImageView+Cache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +148,6 @@
 				261B28C218CB5142007C13D3 /* LibraryBookCreator.m */,
 				260DE4A718CB0BA40036559F /* LibraryManager.h */,
 				260DE4A818CB0BA40036559F /* LibraryManager.m */,
-				2697EE6A18EAAA0A00FAB7DF /* LibraryImageManager.h */,
-				2697EE6B18EAAA0A00FAB7DF /* LibraryImageManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -238,6 +236,8 @@
 				2697EE6818EAA7AF00FAB7DF /* NSString+MD5Hash.m */,
 				2663A02A18E1C78300C1C3A3 /* LibraryConstants.m */,
 				2663A02918E1C78300C1C3A3 /* LibraryConstants.h */,
+				26A0092318EBEAE1002E2DBC /* UIImageView+Cache.h */,
+				26A0092418EBEAE1002E2DBC /* UIImageView+Cache.m */,
 			);
 			name = Utilities;
 			path = TochkaK;
@@ -355,7 +355,6 @@
 				261B28C918CB947D007C13D3 /* LibraryBook.m in Sources */,
 				266AF12218CA5AA200A18C33 /* TochkaK.xcdatamodeld in Sources */,
 				2697EE6918EAA7AF00FAB7DF /* NSString+MD5Hash.m in Sources */,
-				2697EE6C18EAAA0A00FAB7DF /* LibraryImageManager.m in Sources */,
 				261B28CF18CC5394007C13D3 /* LibraryDetailedBookViewController.m in Sources */,
 				26639FDF18E024A900C1C3A3 /* LibraryOperation.m in Sources */,
 				263D5B5418E58A0600CF2C1D /* LibraryCustomizedDetailedView.m in Sources */,
@@ -367,6 +366,7 @@
 				2663A02B18E1C78400C1C3A3 /* LibraryConstants.m in Sources */,
 				26639FE218E0428300C1C3A3 /* LibrarySingleBookOperation.m in Sources */,
 				266AF11B18CA5AA100A18C33 /* main.m in Sources */,
+				26A0092518EBEAE1002E2DBC /* UIImageView+Cache.m in Sources */,
 				260DE4A918CB0BA40036559F /* LibraryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

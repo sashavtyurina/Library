@@ -117,7 +117,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    LibraryTableViewCell *cell = [[LibraryTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+
     LibraryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.coverImage.image = nil;
@@ -126,15 +126,13 @@
     cell.priceLabel.text = @"";
     
     LibraryBook *bookPresenting = [self.books objectAtIndex:[indexPath row]];
-    NSString *title =  bookPresenting.title; //[[self.books objectAtIndex:[indexPath row]] valueForKey:@"title"];
+    NSString *title =  bookPresenting.title;
     if ([title isEqual:[NSNull null]]) { title = @"Unknown name"; }
     
-//    cell.textLabel.text = title;
-    
-    NSString *authorTitle =  bookPresenting.authorTitle; //[[self.books objectAtIndex:[indexPath row]] valueForKey:@"authorTitle"];
+    NSString *authorTitle =  bookPresenting.authorTitle;
     if ([authorTitle isEqualToString:@""]) { authorTitle = @"Unknown author"; }
     
-    BOOL free = bookPresenting.free; //[[[self.books objectAtIndex:[indexPath row]] valueForKey:@"free"] boolValue];
+    BOOL free = bookPresenting.free;
     NSString *price = free ? @"free" : @"$$$";
     
     
@@ -142,13 +140,7 @@
     cell.authorLabel.text = authorTitle;
     cell.priceLabel.text = price;
     
-    //use dispatch concurrent queues here to load and show pictures concurrently
-    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(aQueue, ^{
-
-        [[LibraryImageManager sharedManager] startProcessingImageView:cell.coverImage withURL:bookPresenting.url];
-    });
-    
+    [cell.coverImage startLoadingImageFromURL:bookPresenting.url];
     return cell;
 }
 
@@ -159,7 +151,6 @@
     [[LibraryManager sharedManager] requestDetailedBookWithID:book.ID];
     
     //clear detailed view controller before pushing it
-    [self.currentDetailedVC clearContents];
     [self.navigationController pushViewController:self.currentDetailedVC animated:YES];
 }
 

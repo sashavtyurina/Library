@@ -14,7 +14,7 @@
 #include <CommonCrypto/CommonDigest.h>
 #import "NSString+MD5Hash.h"
 #import "LibraryDownloadImageOperation.h"
-#import "LibraryImageManager.h"
+#import "UIImageView+Cache.h"
 
 enum sortingOrder {
     TITLE = 1,

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LibraryBook.h"
 #import "LibraryCustomizedDetailedView.h"
+#import "UIImageView+Cache.h"
 
 //ViewController that shows the detailed information about a chosen book
 @interface LibraryDetailedBookViewController : UIViewController

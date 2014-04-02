@@ -37,12 +37,14 @@ static const void *LibraryImageViewOperationAssociationKey = &LibraryImageViewOp
     
     LibraryDownloadImageOperation *oldOperation = objc_getAssociatedObject(imageView, LibraryImageViewOperationAssociationKey);
     [oldOperation cancel];
-    
-    LibraryDownloadImageOperation *newOperation = [[LibraryDownloadImageOperation alloc] initWithImageURL:imageURL imageView:imageView];
-    objc_setAssociatedObject(imageView, LibraryImageViewOperationAssociationKey, newOperation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:newOperation];
+    objc_setAssociatedObject(imageView, LibraryImageViewOperationAssociationKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    
+//    LibraryDownloadImageOperation *newOperation = [[LibraryDownloadImageOperation alloc] initWithImageURL:imageURL imageView:imageView];
+//    
+//    objc_setAssociatedObject(imageView, LibraryImageViewOperationAssociationKey, newOperation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    [queue addOperation:newOperation];
     
     
 }
